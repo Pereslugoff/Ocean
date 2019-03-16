@@ -928,7 +928,7 @@ __webpack_require__.r(__webpack_exports__);
  // uri: "https://ocean-reddit-watson.herokuapp.com/graphql"
 
 var client = new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  uri: "http://localhost:3000/graphql"
+  uri: "/graphql"
 });
 
 var Root = function Root() {
