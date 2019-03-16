@@ -64,7 +64,43 @@ module.exports = {
       ).then(data => {
         return data.data.children;
       })
-    }
+    },
+    newPosts: (subreddit, args) => {
+      let queryParams = args
+      queryParams.t = args.timeInterval
+      delete queryParams.timeInterval
+      return getSubredditListings(
+        subreddit.data.display_name,
+        "new",
+        queryParams
+      ).then(data => {
+        return data.data.children;
+      })
+    },
+    controversial: (subreddit, args) => {
+      let queryParams = args
+      queryParams.t = args.timeInterval
+      delete queryParams.timeInterval
+      return getSubredditListings(
+        subreddit.data.display_name,
+        "controversial",
+        queryParams
+      ).then(data => {
+        return data.data.children;
+      })
+    },
+    rising: (subreddit, args) => {
+      let queryParams = args
+      queryParams.t = args.timeInterval
+      delete queryParams.timeInterval
+      return getSubredditListings(
+        subreddit.data.display_name,
+        "rising",
+        queryParams
+      ).then(data => {
+        return data.data.children;
+      })
+    },
   },
 
   Watson: {

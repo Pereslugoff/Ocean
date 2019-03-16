@@ -23,6 +23,9 @@ module.exports = typeDefs = gql`
     name: String
     hot(count: Int, limit: Int, timeInterval: String): [Post]
     top(count: Int, limit: Int, timeInterval: String): [Post]
+    newPosts(count: Int, limit: Int, timeInterval: String): [Post]
+    controversial(count: Int, limit: Int, timeInterval: String): [Post]
+    rising(count: Int, limit: Int, timeInterval: String): [Post]
   }
 
   type Watson {

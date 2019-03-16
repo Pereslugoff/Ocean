@@ -925,7 +925,6 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
- // uri: "https://ocean-reddit-watson.herokuapp.com/graphql"
 
 var client = new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["default"]({
   uri: "/graphql"
@@ -981,7 +980,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n query SubredditNewComments($name: String!, $limit: Int!, $depth: Int!, $timeInterval: String!){\n   subreddit(name: $name){\n     new(limit: $limit, timeInterval: $timeInterval){\n       title\n       id\n       comments(depth: $depth){\n         id\n         body\n       }\n     }\n   }\n }\n"]);
+  var data = _taggedTemplateLiteral(["\n query SubredditNewComments($name: String!, $limit: Int!, $depth: Int!, $timeInterval: String!){\n   subreddit(name: $name){\n     newPosts(limit: $limit, timeInterval: $timeInterval){\n       title\n       id\n       comments(depth: $depth){\n         id\n         body\n       }\n     }\n   }\n }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1102,7 +1101,7 @@ module.exports = _interopRequireDefault;
 /*!*****************************************************!*\
   !*** ./node_modules/apollo-boost/lib/bundle.esm.js ***!
   \*****************************************************/
-/*! exports provided: HttpLink, gql, default, ApolloClient, ObservableQuery, NetworkStatus, isApolloError, ApolloError, FetchType, Observable, getOperationName, createOperation, makePromise, toPromise, fromPromise, fromError, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory */
+/*! exports provided: ApolloClient, ObservableQuery, NetworkStatus, isApolloError, ApolloError, FetchType, Observable, getOperationName, createOperation, makePromise, toPromise, fromPromise, fromError, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory, HttpLink, gql, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

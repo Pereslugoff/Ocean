@@ -4,8 +4,6 @@ import { render } from "react-dom";
 import { ApolloProvider } from "react-apollo";
 import App from './components/App'
 
-// uri: "https://ocean-reddit-watson.herokuapp.com/graphql"
-
 const client = new ApolloClient({
   uri: "/graphql"
 });
