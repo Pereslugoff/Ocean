@@ -6,9 +6,9 @@ const UserDataList = (props) => {
     <div className="data-container">
       <ul>
         {
-          usercomments.map(comment => {
+          usercomments.map((comment) => {
             return (
-              <li>{comment.body}</li>
+              <li key={comment.id}>{comment.body}</li>
             )
           })
         }

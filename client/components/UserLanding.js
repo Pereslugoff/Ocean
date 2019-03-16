@@ -35,10 +35,11 @@ export default class UserLanding extends Component {
         <UserForm handleFormChange={this.handleFormChange} />
         <div className="user-buttons-container">
           <div className="recommended-users">
-            {famousUsers.map(user => {
+            {famousUsers.map((user, index) => {
               return (
                 <button
                   className="user-btn"
+                  key={`UB${index}`}
                   onClick={() => this.setState({ username: user })}
                 >
                   {user}

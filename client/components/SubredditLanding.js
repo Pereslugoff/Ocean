@@ -44,17 +44,17 @@ export default class SubredditLanding extends Component {
     } else if (sort === 'new'){
       queryType = latest
     }
-    console.log(limit, depth)
     return (
       <div className="subreddit-landing-inner">
         <SubredditForm handleFormChange={this.handleFormChange} />
         <div className="subreddit-buttons-container">
           <div className="suggested-subreddits">
             {
-              suggested.map(subreddit => {
+              suggested.map((subreddit, index) => {
                 return (
                   <button
                     className="subreddit-btn"
+                    key={`SL${index}`}
                     onClick={() => this.setState({ name: subreddit })}
                   >
                     {subreddit}

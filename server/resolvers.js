@@ -22,6 +22,7 @@ module.exports = {
 
   Comment: {
     author: comment => getUser(comment.data.author),
+    id: comment => comment.data.id,
     body: comment => comment.data.body
   },
 
@@ -32,6 +33,7 @@ module.exports = {
 
   Post: {
     title: post => post.data.title,
+    id: post => post.data.id,
     comments: (post, args) => getPostComments(post.data.subreddit, post.data.id, args).then(data => {
       return data[1].data.children
     })

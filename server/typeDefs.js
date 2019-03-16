@@ -3,6 +3,7 @@ const { gql } = require('apollo-server')
 module.exports = typeDefs = gql`
   type Comment {
     author: User
+    id: String
     body: String
   }
 
@@ -14,6 +15,7 @@ module.exports = typeDefs = gql`
 
   type Post {
     title(depth: Int, limit: Int): String
+    id: String
     comments(depth: Int, limit: Int): [Comment!]
   }
 

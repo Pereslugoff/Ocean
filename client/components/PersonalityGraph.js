@@ -12,7 +12,6 @@ export default class PersonalityGraph extends Component {
     };
   }
   render() {
-    console.log("PersonalityGraph has the following data", this.state.personality);
     const { text } = this.props;
 
     return (
@@ -51,39 +50,3 @@ export default class PersonalityGraph extends Component {
     );
   }
 }
-
-// {
-//   data.data.getPersonality.personality_traits_and_scores.map(trait => {
-//     return (
-//       <p>{trait}</p>
-//     )
-//   })
-// }
-
-{
-  /* <Query query={query} variables={{text}}>
-{({ loading, error, data}) =>{
-  if(loading) return "Loading...";
-  if(error) return `Error! ${error.message}`
-  if(data){
-    console.log(data)
-  }
-  return (
-    <div>
-      check console
-    </div>
-  )
-}}
-</Query> */
-}
-
-
-{/* <ul>
-{
-  this.state.personality.map(trait => {
-    return (
-      <li>{trait}</li>
-    )
-  })
-}
-</ul> */}

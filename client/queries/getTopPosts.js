@@ -5,7 +5,9 @@ export default gql`
    subreddit(name: $name){
      top(limit: $limit, timeInterval:$timeInterval){
        title
+       id
        comments(depth: $depth){
+         id
          body
        }
      }

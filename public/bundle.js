@@ -322,7 +322,6 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      console.log("PersonalityGraph has the following data", this.state.personality);
       var text = this.props.text;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "chart-container"
@@ -350,43 +349,9 @@ function (_Component) {
   }]);
 
   return PersonalityGraph;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]); // {
-//   data.data.getPersonality.personality_traits_and_scores.map(trait => {
-//     return (
-//       <p>{trait}</p>
-//     )
-//   })
-// }
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
-
-{
-  /* <Query query={query} variables={{text}}>
-  {({ loading, error, data}) =>{
-  if(loading) return "Loading...";
-  if(error) return `Error! ${error.message}`
-  if(data){
-    console.log(data)
-  }
-  return (
-    <div>
-      check console
-    </div>
-  )
-  }}
-  </Query> */
-}
-{
-  /* <ul>
-  {
-   this.state.personality.map(trait => {
-     return (
-       <li>{trait}</li>
-     )
-   })
-  }
-  </ul> */
-}
 
 /***/ }),
 
@@ -403,40 +368,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var recharts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! recharts */ "./node_modules/recharts/es6/index.js");
 
- // [ 'openness - 0.9673090433832561',
-//   'conscientiousness - 0.43458489741544115',
-//   'extraversion - 0.09352659273513364',
-//   'agreeableness - 0.00011902869179691855',
-//   'neuroticism - 0.9534791615098828' ]
-// const data = [
-//   {
-//     subject: "Openness",
-//     A: 96,
-//     fullMark: 100
-//   },
-//   {
-//     subject: "Conscientiousness",
-//     A: 43,
-//     fullMark: 100
-//   },
-//   {
-//     subject: "Extraversion",
-//     A: 93,
-//     fullMark: 100
-//   },
-//   {
-//     subject: "Agreeablesness",
-//     A: 0,
-//     fullMark: 100
-//   },
-//   {
-//     subject: "Neuroticism",
-//     A: 95,
-//     fullMark: 100
-//   }
-// ];
-//   ["openness - 0.998059944644803", "conscientiousness - 0.6148708300835475", "extraversion - 0.037876201514994046", "agreeableness - 0.06531220404013804", "neuroticism - 0.6001621234563344"]
-// let dummy = ["openness - 0.998059944644803", "conscientiousness - 0.6148708300835475", "extraversion - 0.037876201514994046", "agreeableness - 0.06531220404013804", "neuroticism - 0.6001621234563344"]
+
 
 var PersonalityRadar = function PersonalityRadar(props) {
   var data = props.traits.map(function (trait) {
@@ -449,7 +381,6 @@ var PersonalityRadar = function PersonalityRadar(props) {
       fullMark: 100
     };
   });
-  console.log(data);
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(recharts__WEBPACK_IMPORTED_MODULE_1__["RadarChart"], {
     outerRadius: 90,
     width: 425,
@@ -519,14 +450,16 @@ function (_Component) {
     key: "render",
     value: function render() {
       var posts = this.props.posts;
-      console.log(posts);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "data-container"
       }, posts.map(function (post) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-          className: "post-group"
+          className: "post-group",
+          key: post.id
         }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h5", null, post.title), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, post.comments.map(function (comment) {
-          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, comment.body);
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: comment.id
+          }, comment.body);
         })));
       }));
     }
@@ -711,7 +644,6 @@ function (_Component) {
         queryType = _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_4__["default"];
       }
 
-      console.log(limit, depth);
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subreddit-landing-inner"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
@@ -720,9 +652,10 @@ function (_Component) {
         className: "subreddit-buttons-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "suggested-subreddits"
-      }, suggested.map(function (subreddit) {
+      }, suggested.map(function (subreddit, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "subreddit-btn",
+          key: "SL".concat(index),
           onClick: function onClick() {
             return _this2.setState({
               name: subreddit
@@ -811,7 +744,9 @@ var UserDataList = function UserDataList(props) {
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "data-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, usercomments.map(function (comment) {
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, comment.body);
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+      key: comment.id
+    }, comment.body);
   })));
 };
 
@@ -933,9 +868,10 @@ function (_Component) {
         className: "user-buttons-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "recommended-users"
-      }, famousUsers.map(function (user) {
+      }, famousUsers.map(function (user, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
           className: "user-btn",
+          key: "UB".concat(index),
           onClick: function onClick() {
             return _this2.setState({
               username: user
@@ -989,9 +925,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+ // uri: "https://ocean-reddit-watson.herokuapp.com/graphql"
 
 var client = new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  uri: "https://ocean-reddit-watson.herokuapp.com/graphql"
+  uri: "http://localhost:3000/graphql"
 });
 
 var Root = function Root() {
@@ -1016,7 +953,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n query SubredditComments($name: String!, $limit: Int!, $depth: Int!, $timeInterval: String!){\n   subreddit(name: $name){\n     hot(limit: $limit, timeInterval: $timeInterval){\n       title\n       comments(depth: $depth){\n         body\n       }\n     }\n   }\n }\n"]);
+  var data = _taggedTemplateLiteral(["\n query SubredditComments($name: String!, $limit: Int!, $depth: Int!, $timeInterval: String!){\n   subreddit(name: $name){\n     hot(limit: $limit, timeInterval: $timeInterval){\n       title\n       id\n       comments(depth: $depth){\n         id\n         body\n       }\n     }\n   }\n }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1044,7 +981,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n query SubredditNewComments($name: String!, $limit: Int!, $depth: Int!, $timeInterval: String!){\n   subreddit(name: $name){\n     new(limit: $limit, timeInterval: $timeInterval){\n       title\n       comments(depth: $depth){\n         body\n       }\n     }\n   }\n }\n"]);
+  var data = _taggedTemplateLiteral(["\n query SubredditNewComments($name: String!, $limit: Int!, $depth: Int!, $timeInterval: String!){\n   subreddit(name: $name){\n     new(limit: $limit, timeInterval: $timeInterval){\n       title\n       id\n       comments(depth: $depth){\n         id\n         body\n       }\n     }\n   }\n }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1100,7 +1037,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n query SubredditTopComments($name: String!, $limit: Int!, $depth: Int!, $timeInterval: String!){\n   subreddit(name: $name){\n     top(limit: $limit, timeInterval:$timeInterval){\n       title\n       comments(depth: $depth){\n         body\n       }\n     }\n   }\n }\n"]);
+  var data = _taggedTemplateLiteral(["\n query SubredditTopComments($name: String!, $limit: Int!, $depth: Int!, $timeInterval: String!){\n   subreddit(name: $name){\n     top(limit: $limit, timeInterval:$timeInterval){\n       title\n       id\n       comments(depth: $depth){\n         id\n         body\n       }\n     }\n   }\n }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
@@ -1128,7 +1065,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\nquery getUserComments($username: String!){\n\tuser(username:$username){\n    comments{\n      body\n    }\n  }\n}\n"]);
+  var data = _taggedTemplateLiteral(["\nquery getUserComments($username: String!){\n\tuser(username:$username){\n    comments{\n      id\n      body\n    }\n  }\n}\n"]);
 
   _templateObject = function _templateObject() {
     return data;
