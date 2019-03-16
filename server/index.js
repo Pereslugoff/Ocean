@@ -2,7 +2,7 @@ const path = require('path');
 const express = require('express');
 const { ApolloServer, gql } = require('apollo-server-express')
 const app = express();
-const port = process.env.PORT || 3000;
+// const port = process.env.PORT || 3000;
 
 
 const typeDefs = require('./typeDefs');
@@ -20,7 +20,7 @@ app.get('*', (req, res, next) => {
 })
 
 server.applyMiddleware({app});
-app.listen(port, function () {
+app.listen(process.env.PORT, function () {
   console.log("Knock, knock");
   console.log("Who's there?");
   console.log(`Your server, listening on port ${port}`);
