@@ -23,5 +23,5 @@ server.applyMiddleware({app});
 app.listen(process.env.PORT, function () {
   console.log("Knock, knock");
   console.log("Who's there?");
-  console.log(`Your server, listening on port ${port}`);
+  console.log(`Your server, listening on port ${process.env.PORT}`);
 });
