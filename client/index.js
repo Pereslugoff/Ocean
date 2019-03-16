@@ -5,7 +5,7 @@ import { ApolloProvider } from "react-apollo";
 import App from './components/App'
 
 const client = new ApolloClient({
-  uri: "http://ocean-reddit-watson.herokuapp.com/graphql"
+  uri: "https://ocean-reddit-watson.herokuapp.com/graphql"
 });
 
 

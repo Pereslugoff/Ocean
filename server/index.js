@@ -19,7 +19,7 @@ app.get('*', (req, res, next) => {
   res.sendFile(path.join(__dirname, '../public/index.html'))
 })
 
-server.applyMiddleware({app});
+server.applyMiddleware({app, path: '/graphql'});
 app.listen(process.env.PORT, function () {
   console.log("Knock, knock");
   console.log("Who's there?");
