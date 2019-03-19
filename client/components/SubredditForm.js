@@ -38,7 +38,8 @@ const SubredditForm = props => {
           <option value="">Sort by:</option>
           <option value="top">Top</option>
           <option value="hot">Hot</option>
-          <option value="new">New</option>
+          <option value="newPosts">New</option>
+          <option value="controversial">Controversial</option>
         </select>
         <select name="timeInterval">
           <option value="">From this:</option>

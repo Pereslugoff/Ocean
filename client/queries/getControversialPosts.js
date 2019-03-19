@@ -1,11 +1,11 @@
 import gql from 'graphql-tag'
 
 export default gql`
- query SubredditNewPosts($name: String!, $depth: Int!){
+ query SubredditControversialPosts($name: String!, $depth: Int!){
    subreddit(name: $name){
-     newPosts{
-       title
+    controversial{
        id
+       title
        comments(depth: $depth){
          id
          body

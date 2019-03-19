@@ -66,13 +66,9 @@ module.exports = {
       })
     },
     newPosts: (subreddit, args) => {
-      let queryParams = args
-      queryParams.t = args.timeInterval
-      delete queryParams.timeInterval
       return getSubredditListings(
         subreddit.data.display_name,
-        "new",
-        queryParams
+        "new"
       ).then(data => {
         return data.data.children;
       })

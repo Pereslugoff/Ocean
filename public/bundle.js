@@ -526,8 +526,10 @@ var SubredditForm = function SubredditForm(props) {
   }, "Top"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: "hot"
   }, "Hot"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
-    value: "new"
-  }, "New")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
+    value: "newPosts"
+  }, "New"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
+    value: "controversial"
+  }, "Controversial")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     name: "timeInterval"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("option", {
     value: ""
@@ -565,8 +567,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
 /* harmony import */ var _queries_getHotPosts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../queries/getHotPosts */ "./client/queries/getHotPosts.js");
 /* harmony import */ var _queries_getTopPosts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../queries/getTopPosts */ "./client/queries/getTopPosts.js");
-/* harmony import */ var _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../queries/getNewPosts */ "./client/queries/getNewPosts.js");
-/* harmony import */ var _SubredditForm__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./SubredditForm */ "./client/components/SubredditForm.js");
+/* harmony import */ var _queries_getControversialPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../queries/getControversialPosts */ "./client/queries/getControversialPosts.js");
+/* harmony import */ var _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../queries/getNewPosts */ "./client/queries/getNewPosts.js");
+/* harmony import */ var _SubredditForm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SubredditForm */ "./client/components/SubredditForm.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -586,6 +589,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -635,18 +639,42 @@ function (_Component) {
       var timeInterval = this.state.timeInterval;
       var sort = this.state.sort;
       var queryType;
+      var queryVars;
 
       if (sort === 'hot') {
         queryType = _queries_getHotPosts__WEBPACK_IMPORTED_MODULE_2__["default"];
+        queryVars = {
+          name: name,
+          limit: limit,
+          depth: depth,
+          timeInterval: timeInterval
+        };
       } else if (sort === 'top') {
         queryType = _queries_getTopPosts__WEBPACK_IMPORTED_MODULE_3__["default"];
-      } else if (sort === 'new') {
-        queryType = _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_4__["default"];
+        queryVars = {
+          name: name,
+          limit: limit,
+          depth: depth,
+          timeInterval: timeInterval
+        };
+      } else if (sort === 'newPosts') {
+        queryType = _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_5__["default"];
+        queryVars = {
+          name: name,
+          depth: depth
+        };
+      } else if (sort === 'controversial') {
+        queryType = _queries_getControversialPosts__WEBPACK_IMPORTED_MODULE_4__["default"];
+        queryVars = {
+          name: name,
+          depth: depth
+        };
       }
 
+      console.log("The sort is: ".concat(sort, ",\n    The queryVars are: ").concat(queryVars, ",\n    The queryType is: ").concat(queryType, "\n    "));
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subreddit-landing-inner"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_5__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_6__["default"], {
         handleFormChange: this.handleFormChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subreddit-buttons-container"
@@ -670,12 +698,7 @@ function (_Component) {
           onClick: function onClick() {
             client.query({
               query: queryType,
-              variables: {
-                name: name,
-                limit: limit,
-                depth: depth,
-                timeInterval: timeInterval
-              }
+              variables: queryVars
             }).then(function (data) {
               return _this2.props.handleData(data.data.subreddit[sort]);
             });
@@ -940,6 +963,34 @@ Object(react_dom__WEBPACK_IMPORTED_MODULE_2__["render"])(react__WEBPACK_IMPORTED
 
 /***/ }),
 
+/***/ "./client/queries/getControversialPosts.js":
+/*!*************************************************!*\
+  !*** ./client/queries/getControversialPosts.js ***!
+  \*************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n query SubredditControversialPosts($name: String!, $depth: Int!){\n   subreddit(name: $name){\n    controversial{\n       id\n       title\n       comments(depth: $depth){\n         id\n         body\n       }\n     }\n   }\n }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+/* harmony default export */ __webpack_exports__["default"] = (graphql_tag__WEBPACK_IMPORTED_MODULE_0___default()(_templateObject()));
+
+/***/ }),
+
 /***/ "./client/queries/getHotPosts.js":
 /*!***************************************!*\
   !*** ./client/queries/getHotPosts.js ***!
@@ -980,7 +1031,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_0__);
 function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n query SubredditNewComments($name: String!, $limit: Int!, $depth: Int!, $timeInterval: String!){\n   subreddit(name: $name){\n     newPosts(limit: $limit, timeInterval: $timeInterval){\n       title\n       id\n       comments(depth: $depth){\n         id\n         body\n       }\n     }\n   }\n }\n"]);
+  var data = _taggedTemplateLiteral(["\n query SubredditNewPosts($name: String!, $depth: Int!){\n   subreddit(name: $name){\n     newPosts{\n       title\n       id\n       comments(depth: $depth){\n         id\n         body\n       }\n     }\n   }\n }\n"]);
 
   _templateObject = function _templateObject() {
     return data;

@@ -44,7 +44,6 @@ export default class PersonalityCalculator extends Component {
   render() {
 
     let text;
-
     if (this.state.data) {
       if(this.state.posts.length > 0){
         text = this.state.posts

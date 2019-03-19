@@ -2,7 +2,8 @@ import React, { Component } from "react";
 import { ApolloConsumer } from "react-apollo";
 import hot from "../queries/getHotPosts";
 import top from '../queries/getTopPosts';
-import latest from '../queries/getNewPosts'
+import controversial from '../queries/getControversialPosts';
+import newPosts from '../queries/getNewPosts';
 import SubredditForm from './SubredditForm';
 
 export default class SubredditLanding extends Component {
@@ -36,14 +37,26 @@ export default class SubredditLanding extends Component {
     const {sort} = this.state
 
     let queryType;
+    let queryVars;
     
     if(sort === 'hot'){
       queryType = hot
+      queryVars = { name, limit, depth, timeInterval }
     } else if(sort === 'top'){
       queryType = top
-    } else if (sort === 'new'){
-      queryType = latest
+      queryVars = { name, limit, depth, timeInterval }
+    } else if (sort === 'newPosts'){
+      queryType = newPosts
+      queryVars = { name, depth }
+    } else if (sort === 'controversial') {
+      queryType = controversial
+      queryVars = { name, depth }
     }
+
+    console.log(`The sort is: ${sort},
+    The queryVars are: ${queryVars},
+    The queryType is: ${queryType}
+    `)
     return (
       <div className="subreddit-landing-inner">
         <SubredditForm handleFormChange={this.handleFormChange} />
@@ -71,7 +84,7 @@ export default class SubredditLanding extends Component {
                 client
                   .query({
                     query: queryType,
-                    variables: { name, limit, depth, timeInterval }
+                    variables: queryVars
                   })
                   .then(data => this.props.handleData(data.data.subreddit[sort]));
               }}

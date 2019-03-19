@@ -10,13 +10,13 @@ module.exports = typeDefs = gql`
   type User {
     id: ID!
     username: String!
-    comments(depth: Int, limit: Int): [Comment!]
+    comments(depth: Int, limit: Int): [Comment]
   }
 
   type Post {
     title(depth: Int, limit: Int): String
     id: String
-    comments(depth: Int, limit: Int): [Comment!]
+    comments(depth: Int, limit: Int): [Comment]
   }
 
   type Subreddit {
