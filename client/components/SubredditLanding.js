@@ -86,7 +86,8 @@ export default class SubredditLanding extends Component {
                     query: queryType,
                     variables: queryVars
                   })
-                  .then(data => this.props.handleData(data.data.subreddit[sort]));
+                  .then(data => this.props.handleData(data.data.subreddit[sort]))
+                  .catch(error => console.log(error));
               }}
             >
               Get Comments!

@@ -27,7 +27,9 @@ module.exports = {
   },
 
   User: {
-    username: user => user.data.name,
+    username: user => {
+      console.log(user)
+      return user.data.name},
     comments: (user, args) => getUserComments(user.data.name).then(data => data.data.children)
   },
 

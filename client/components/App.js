@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import PersonalityCalculator from "./PersonalityCalculator";
 
+
+
 const App = () => {
   return (
     <div className="app-container">
