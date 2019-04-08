@@ -403,6 +403,98 @@ var PersonalityRadar = function PersonalityRadar(props) {
 
 /***/ }),
 
+/***/ "./client/components/QueryTest.js":
+/*!****************************************!*\
+  !*** ./client/components/QueryTest.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
+/* harmony import */ var _queries_getUserComments__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../queries/getUserComments */ "./client/queries/getUserComments.js");
+/* harmony import */ var _UserDataList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UserDataList */ "./client/components/UserDataList.js");
+/* harmony import */ var _RadarTest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RadarTest */ "./client/components/RadarTest.js");
+
+
+
+
+
+
+var QueryTest = function QueryTest(_ref) {
+  var username = _ref.username;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
+    query: _queries_getUserComments__WEBPACK_IMPORTED_MODULE_2__["default"],
+    variables: {
+      username: username
+    }
+  }, function (_ref2) {
+    var loading = _ref2.loading,
+        error = _ref2.error,
+        data = _ref2.data;
+    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading");
+    if (error) return null;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarTest__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserDataList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      usercomments: data.user.comments
+    }));
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (QueryTest);
+
+/***/ }),
+
+/***/ "./client/components/RadarTest.js":
+/*!****************************************!*\
+  !*** ./client/components/RadarTest.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
+/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
+function _templateObject() {
+  var data = _taggedTemplateLiteral(["\n  {\n    ROOT_QUERY @client\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+
+
+
+
+var GET_COMMENTS = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
+
+var RadarTest = function RadarTest() {
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
+    query: GET_COMMENTS
+  }, function (_ref) {
+    var loading = _ref.loading,
+        error = _ref.error,
+        data = _ref.data;
+    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading radar test");
+    console.log(data);
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Check console");
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (RadarTest);
+
+/***/ }),
+
 /***/ "./client/components/SubredditDataList.js":
 /*!************************************************!*\
   !*** ./client/components/SubredditDataList.js ***!
@@ -945,20 +1037,35 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! react-dom */ "./node_modules/react-dom/index.js");
 /* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
-/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/App */ "./client/components/App.js");
+/* harmony import */ var apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-cache-inmemory */ "./node_modules/apollo-cache-inmemory/lib/bundle.esm.js");
+/* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/App */ "./client/components/App.js");
+/* harmony import */ var _components_QueryTest__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/QueryTest */ "./client/components/QueryTest.js");
 
 
 
 
+
+
+ // const cache = new InMemoryCache({
+//   dataIdFromObject: object => object.id
+// });
 
 var client = new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  uri: "/graphql"
-});
+  uri: "/graphql" // cache
+
+}); // cache.writeData({
+//   data: {
+//     manUalcomments: [],
+//   },
+// });
 
 var Root = function Root() {
+  console.log(client.cache.data);
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
     client: client
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_4__["default"], null));
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_QueryTest__WEBPACK_IMPORTED_MODULE_6__["default"], {
+    username: "baby_back_ribz"
+  }));
 };
 
 Object(react_dom__WEBPACK_IMPORTED_MODULE_2__["render"])(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Root, null), document.getElementById("app"));
@@ -1154,7 +1261,7 @@ module.exports = _interopRequireDefault;
 /*!*****************************************************!*\
   !*** ./node_modules/apollo-boost/lib/bundle.esm.js ***!
   \*****************************************************/
-/*! exports provided: HttpLink, gql, default, ApolloClient, ObservableQuery, NetworkStatus, isApolloError, ApolloError, FetchType, Observable, getOperationName, createOperation, makePromise, toPromise, fromPromise, fromError, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory */
+/*! exports provided: ApolloClient, ObservableQuery, NetworkStatus, isApolloError, ApolloError, FetchType, Observable, getOperationName, createOperation, makePromise, toPromise, fromPromise, fromError, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory, HttpLink, gql, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
