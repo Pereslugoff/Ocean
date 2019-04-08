@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { ApolloConsumer } from "react-apollo";
 import UserForm from "./UserForm";
 import query from "../queries/getUserComments";
-import QueryTest from "./QueryTest";
+import UserQuery from "./UserQuery";
 
 export default class UserLanding extends Component {
   constructor(props) {
@@ -10,10 +10,10 @@ export default class UserLanding extends Component {
     this.state = {
       username: "",
       data: false,
-      posts: []
     };
 
     this.handleFormChange = this.handleFormChange.bind(this);
+    this.handleQuery = this.handleQuery.bind(this)
   }
 
   handleQuery(){
@@ -40,27 +40,27 @@ export default class UserLanding extends Component {
           {
             data
             ?
-            <QueryTest username={username} />
+            <UserQuery username={username} />
             :
-          <div className="get-user-comments-button-container">
-            <UserForm handleFormChange={this.handleFormChange} />
-            <div className="user-buttons-container">
-              <div className="recommended-users">
-                {famousUsers.map((user, index) => {
-                  return (
-                    <button
-                      className="user-btn"
-                      key={`UB${index}`}
-                      onClick={() => this.setState({ username: user })}
-                    >
-                      {user}
-                    </button>
-                  );
-                })}
-              </div>
-              </div>
-            <button className="btn" onClick={() => this.handleQuery()}>Get Comments!</button>
-          </div>
+            <div className="get-user-comments-button-container">
+              <UserForm handleFormChange={this.handleFormChange} />
+              <div className="user-buttons-container">
+                <div className="recommended-users">
+                  {famousUsers.map((user, index) => {
+                    return (
+                      <button
+                        className="user-btn"
+                        key={`UB${index}`}
+                        onClick={() => this.setState({ username: user })}
+                      >
+                        {user}
+                      </button>
+                    );
+                  })}
+                </div>
+                </div>
+              <button className="btn" onClick={() => this.handleQuery()}>Get Comments!</button>
+            </div>
           }
       </div>
     );

@@ -127,15 +127,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PersonalityCalculator; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _SubredditDataList__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SubredditDataList */ "./client/components/SubredditDataList.js");
-/* harmony import */ var _PersonalityGraph__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./PersonalityGraph */ "./client/components/PersonalityGraph.js");
-/* harmony import */ var _SubredditLanding__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./SubredditLanding */ "./client/components/SubredditLanding.js");
-/* harmony import */ var _UserLanding__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserLanding */ "./client/components/UserLanding.js");
-/* harmony import */ var _UserDataList__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./UserDataList */ "./client/components/UserDataList.js");
-/* harmony import */ var _TypePicker__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./TypePicker */ "./client/components/TypePicker.js");
+/* harmony import */ var _SubredditLanding__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SubredditLanding */ "./client/components/SubredditLanding.js");
+/* harmony import */ var _UserLanding__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserLanding */ "./client/components/UserLanding.js");
+/* harmony import */ var _TypePicker__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./TypePicker */ "./client/components/TypePicker.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -152,9 +147,6 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
 
 
 
@@ -173,14 +165,8 @@ function (_Component) {
 
     _this = _possibleConstructorReturn(this, _getPrototypeOf(PersonalityCalculator).call(this, props));
     _this.state = {
-      data: false,
-      posts: [],
-      usercomments: [],
       dataType: ''
     };
-    _this.handleFormChange = _this.handleFormChange.bind(_assertThisInitialized(_this));
-    _this.handleData = _this.handleData.bind(_assertThisInitialized(_this));
-    _this.handleCommentData = _this.handleCommentData.bind(_assertThisInitialized(_this));
     _this.handleType = _this.handleType.bind(_assertThisInitialized(_this));
     return _this;
   }
@@ -193,160 +179,18 @@ function (_Component) {
       });
     }
   }, {
-    key: "handleFormChange",
-    value: function handleFormChange(event) {
-      this.setState(_defineProperty({}, event.target.name, event.target.value));
-    }
-  }, {
-    key: "handleData",
-    value: function handleData(newData) {
-      this.setState({
-        posts: newData,
-        data: true
-      });
-    }
-  }, {
-    key: "handleCommentData",
-    value: function handleCommentData(newData) {
-      this.setState({
-        usercomments: newData,
-        data: true
-      });
-    }
-  }, {
     key: "render",
     value: function render() {
-      var text;
-
-      if (this.state.data) {
-        if (this.state.posts.length > 0) {
-          text = this.state.posts.map(function (post) {
-            return post.comments.map(function (comment) {
-              return comment.body;
-            });
-          }).join("");
-        } else {
-          text = this.state.usercomments.map(function (comment) {
-            return comment.body;
-          }).join("");
-        }
-      }
-
+      var dataType = this.state.dataType;
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "single-calc-container"
-      }, !this.state.dataType.length > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TypePicker__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }, !dataType.length > 0 ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_TypePicker__WEBPACK_IMPORTED_MODULE_3__["default"], {
         handleType: this.handleType
-      }) : this.state.data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "personality-view"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityGraph__WEBPACK_IMPORTED_MODULE_2__["default"], {
-        text: text
-      }), this.state.dataType === "user" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserLanding__WEBPACK_IMPORTED_MODULE_4__["default"], null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditDataList__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        posts: this.state.posts
-      })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "form-view"
-      }, this.state.dataType === "user" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserLanding__WEBPACK_IMPORTED_MODULE_4__["default"], {
-        handleData: this.handleCommentData
-      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditLanding__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        handleData: this.handleData
-      })));
+      }) : dataType === "user" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserLanding__WEBPACK_IMPORTED_MODULE_2__["default"], null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditLanding__WEBPACK_IMPORTED_MODULE_1__["default"], null));
     }
   }]);
 
   return PersonalityCalculator;
-}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
-
-
-
-/***/ }),
-
-/***/ "./client/components/PersonalityGraph.js":
-/*!***********************************************!*\
-  !*** ./client/components/PersonalityGraph.js ***!
-  \***********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return PersonalityGraph; });
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
-/* harmony import */ var _queries_getPersonality__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../queries/getPersonality */ "./client/queries/getPersonality.js");
-/* harmony import */ var _PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PersonalityRadarChart */ "./client/components/PersonalityRadarChart.js");
-function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
-
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
-
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
-
-function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
-
-
-
-
-
-
-var PersonalityGraph =
-/*#__PURE__*/
-function (_Component) {
-  _inherits(PersonalityGraph, _Component);
-
-  function PersonalityGraph(props) {
-    var _this;
-
-    _classCallCheck(this, PersonalityGraph);
-
-    _this = _possibleConstructorReturn(this, _getPrototypeOf(PersonalityGraph).call(this, props));
-    _this.state = {
-      personality: [],
-      data: false
-    };
-    return _this;
-  }
-
-  _createClass(PersonalityGraph, [{
-    key: "render",
-    value: function render() {
-      var _this2 = this;
-
-      var text = this.props.text;
-      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "chart-container"
-      }, this.state.data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        traits: this.state.personality
-      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["ApolloConsumer"], null, function (client) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "btn",
-          onClick: function onClick() {
-            client.query({
-              query: _queries_getPersonality__WEBPACK_IMPORTED_MODULE_2__["default"],
-              variables: {
-                text: text
-              }
-            }).then(function (data) {
-              _this2.setState({
-                personality: data.data.getPersonality.personality_traits_and_scores,
-                data: true
-              });
-            });
-          }
-        }, "Get Personality!");
-      }));
-    }
-  }]);
-
-  return PersonalityGraph;
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
@@ -401,10 +245,10 @@ var PersonalityRadar = function PersonalityRadar(props) {
 
 /***/ }),
 
-/***/ "./client/components/QueryTest.js":
-/*!****************************************!*\
-  !*** ./client/components/QueryTest.js ***!
-  \****************************************/
+/***/ "./client/components/RadarChartQuery.js":
+/*!**********************************************!*\
+  !*** ./client/components/RadarChartQuery.js ***!
+  \**********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -413,70 +257,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
-/* harmony import */ var _queries_getUserComments__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../queries/getUserComments */ "./client/queries/getUserComments.js");
-/* harmony import */ var _UserDataList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UserDataList */ "./client/components/UserDataList.js");
-/* harmony import */ var _RadarTest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RadarTest */ "./client/components/RadarTest.js");
+/* harmony import */ var _queries_getPersonality__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../queries/getPersonality */ "./client/queries/getPersonality.js");
+/* harmony import */ var _PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PersonalityRadarChart */ "./client/components/PersonalityRadarChart.js");
 
 
 
 
 
-
-var QueryTest = function QueryTest(_ref) {
-  var username = _ref.username;
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
-    query: _queries_getUserComments__WEBPACK_IMPORTED_MODULE_2__["default"],
-    variables: {
-      username: username
-    }
-  }, function (_ref2) {
-    var loading = _ref2.loading,
-        error = _ref2.error,
-        data = _ref2.data;
-    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading");
-    if (error) return null;
-    var text = data.user.comments.map(function (comment) {
-      return comment.body;
-    }).join(''); // console.log(text)
-
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarTest__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      text: text
-    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserDataList__WEBPACK_IMPORTED_MODULE_3__["default"], {
-      usercomments: data.user.comments
-    }));
-  });
-};
-
-/* harmony default export */ __webpack_exports__["default"] = (QueryTest);
-
-/***/ }),
-
-/***/ "./client/components/RadarTest.js":
-/*!****************************************!*\
-  !*** ./client/components/RadarTest.js ***!
-  \****************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
-/* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _queries_getPersonality__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../queries/getPersonality */ "./client/queries/getPersonality.js");
-/* harmony import */ var _PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PersonalityRadarChart */ "./client/components/PersonalityRadarChart.js");
-
-
-
-
-
-
-var RadarTest = function RadarTest(_ref) {
+var RadarChartQuery = function RadarChartQuery(_ref) {
   var text = _ref.text;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
-    query: _queries_getPersonality__WEBPACK_IMPORTED_MODULE_3__["default"],
+    query: _queries_getPersonality__WEBPACK_IMPORTED_MODULE_2__["default"],
     variables: {
       text: text
     }
@@ -486,13 +277,16 @@ var RadarTest = function RadarTest(_ref) {
         data = _ref2.data;
     if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading radar test");
     var traits = data.getPersonality.personality_traits_and_scores;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_4__["default"], {
-      traits: traits
-    });
+    console.log(traits);
+    return (// <h1>Check console</h1>
+      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_3__["default"], {
+        traits: traits
+      })
+    );
   });
 };
 
-/* harmony default export */ __webpack_exports__["default"] = (RadarTest);
+/* harmony default export */ __webpack_exports__["default"] = (RadarChartQuery);
 
 /***/ }),
 
@@ -663,6 +457,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _queries_getControversialPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../queries/getControversialPosts */ "./client/queries/getControversialPosts.js");
 /* harmony import */ var _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../queries/getNewPosts */ "./client/queries/getNewPosts.js");
 /* harmony import */ var _SubredditForm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SubredditForm */ "./client/components/SubredditForm.js");
+/* harmony import */ var _SubredditQuery__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./SubredditQuery */ "./client/components/SubredditQuery.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -682,6 +477,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -712,10 +508,18 @@ function (_Component) {
       posts: []
     };
     _this.handleFormChange = _this.handleFormChange.bind(_assertThisInitialized(_this));
+    _this.handleQuery = _this.handleQuery.bind(_assertThisInitialized(_this));
     return _this;
   }
 
   _createClass(SubredditLanding, [{
+    key: "handleQuery",
+    value: function handleQuery() {
+      this.setState({
+        data: true
+      });
+    }
+  }, {
     key: "handleFormChange",
     value: function handleFormChange(event) {
       this.setState(_defineProperty({}, event.target.name, event.target.value));
@@ -726,48 +530,42 @@ function (_Component) {
       var _this2 = this;
 
       var suggested = ["Poltics", "The_Donald", "Buddhism", "Scifi", "Javascript", "GraphQL", "WebDev"];
-      var name = this.state.name;
       var limit = Number(this.state.limit);
       var depth = Number(this.state.depth);
-      var timeInterval = this.state.timeInterval;
-      var sort = this.state.sort;
-      var queryType;
-      var queryVars;
-
-      if (sort === 'hot') {
-        queryType = _queries_getHotPosts__WEBPACK_IMPORTED_MODULE_2__["default"];
-        queryVars = {
+      var _this$state = this.state,
+          sort = _this$state.sort,
+          data = _this$state.data,
+          name = _this$state.name,
+          timeInterval = _this$state.timeInterval;
+      var queryDictionary = {
+        "hot": {
           name: name,
           limit: limit,
           depth: depth,
           timeInterval: timeInterval
-        };
-      } else if (sort === 'top') {
-        queryType = _queries_getTopPosts__WEBPACK_IMPORTED_MODULE_3__["default"];
-        queryVars = {
+        },
+        "top": {
           name: name,
           limit: limit,
           depth: depth,
           timeInterval: timeInterval
-        };
-      } else if (sort === 'newPosts') {
-        queryType = _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_5__["default"];
-        queryVars = {
+        },
+        "controversial": {
           name: name,
           depth: depth
-        };
-      } else if (sort === 'controversial') {
-        queryType = _queries_getControversialPosts__WEBPACK_IMPORTED_MODULE_4__["default"];
-        queryVars = {
+        },
+        "newPosts": {
           name: name,
           depth: depth
-        };
-      }
-
-      console.log("The sort is: ".concat(sort, ",\n    The queryVars are: ").concat(queryVars, ",\n    The queryType is: ").concat(queryType, "\n    "));
+        }
+      };
+      var queryVars = queryDictionary[sort];
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subreddit-landing-inner"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }, data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditQuery__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        queryType: sort,
+        queryVars: queryVars
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_6__["default"], {
         handleFormChange: this.handleFormChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subreddit-buttons-container"
@@ -783,23 +581,12 @@ function (_Component) {
             });
           }
         }, subreddit);
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["ApolloConsumer"], {
-        className: "get-comments-apollo"
-      }, function (client) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "btn",
-          onClick: function onClick() {
-            client.query({
-              query: queryType,
-              variables: queryVars
-            }).then(function (data) {
-              return _this2.props.handleData(data.data.subreddit[sort]);
-            }).catch(function (error) {
-              return console.log(error);
-            });
-          }
-        }, "Get Comments!");
-      })));
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn",
+        onClick: function onClick() {
+          return _this2.handleQuery();
+        }
+      }, "Get Comments!"))));
     }
   }]);
 
@@ -807,6 +594,71 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
+
+/***/ }),
+
+/***/ "./client/components/SubredditQuery.js":
+/*!*********************************************!*\
+  !*** ./client/components/SubredditQuery.js ***!
+  \*********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
+/* harmony import */ var _RadarChartQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./RadarChartQuery */ "./client/components/RadarChartQuery.js");
+/* harmony import */ var _queries_getHotPosts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../queries/getHotPosts */ "./client/queries/getHotPosts.js");
+/* harmony import */ var _queries_getTopPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../queries/getTopPosts */ "./client/queries/getTopPosts.js");
+/* harmony import */ var _queries_getControversialPosts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../queries/getControversialPosts */ "./client/queries/getControversialPosts.js");
+/* harmony import */ var _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../queries/getNewPosts */ "./client/queries/getNewPosts.js");
+/* harmony import */ var _SubredditDataList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./SubredditDataList */ "./client/components/SubredditDataList.js");
+
+
+
+
+
+
+
+
+
+var SubredditQuery = function SubredditQuery(_ref) {
+  var queryType = _ref.queryType,
+      queryVars = _ref.queryVars;
+  var queryDictionary = {
+    "hot": _queries_getHotPosts__WEBPACK_IMPORTED_MODULE_3__["default"],
+    "top": _queries_getTopPosts__WEBPACK_IMPORTED_MODULE_4__["default"],
+    "controversial": _queries_getControversialPosts__WEBPACK_IMPORTED_MODULE_5__["default"],
+    "newPosts": _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_6__["default"]
+  };
+  var subredditQuery = queryDictionary[queryType];
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
+    query: subredditQuery,
+    variables: queryVars
+  }, function (_ref2) {
+    var loading = _ref2.loading,
+        error = _ref2.error,
+        data = _ref2.data;
+    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading");
+    if (error) return null;
+    var posts = data.subreddit[queryType];
+    var text = posts.map(function (post) {
+      return post.comments.map(function (comment) {
+        return comment.body;
+      });
+    }).join("");
+    console.log(text);
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarChartQuery__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      text: text
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditDataList__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      posts: posts
+    }));
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (SubredditQuery);
 
 /***/ }),
 
@@ -921,7 +773,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
 /* harmony import */ var _UserForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserForm */ "./client/components/UserForm.js");
 /* harmony import */ var _queries_getUserComments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../queries/getUserComments */ "./client/queries/getUserComments.js");
-/* harmony import */ var _QueryTest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./QueryTest */ "./client/components/QueryTest.js");
+/* harmony import */ var _UserQuery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserQuery */ "./client/components/UserQuery.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -959,10 +811,10 @@ function (_Component) {
     _this = _possibleConstructorReturn(this, _getPrototypeOf(UserLanding).call(this, props));
     _this.state = {
       username: "",
-      data: false,
-      posts: []
+      data: false
     };
     _this.handleFormChange = _this.handleFormChange.bind(_assertThisInitialized(_this));
+    _this.handleQuery = _this.handleQuery.bind(_assertThisInitialized(_this));
     return _this;
   }
 
@@ -991,7 +843,7 @@ function (_Component) {
       var famousUsers = ["spez", "kn0thing", "neiltyson", "GovSchwarzenegger", "Here_Comes_The_King", "williamshatner"];
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-landing-container"
-      }, data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QueryTest__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserQuery__WEBPACK_IMPORTED_MODULE_4__["default"], {
         username: username
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "get-user-comments-button-container"
@@ -1048,6 +900,55 @@ function (_Component) {
 
 /***/ }),
 
+/***/ "./client/components/UserQuery.js":
+/*!****************************************!*\
+  !*** ./client/components/UserQuery.js ***!
+  \****************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
+/* harmony import */ var _queries_getUserComments__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../queries/getUserComments */ "./client/queries/getUserComments.js");
+/* harmony import */ var _UserDataList__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./UserDataList */ "./client/components/UserDataList.js");
+/* harmony import */ var _RadarChartQuery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./RadarChartQuery */ "./client/components/RadarChartQuery.js");
+
+
+
+
+
+
+var UserQuery = function UserQuery(_ref) {
+  var username = _ref.username;
+  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
+    query: _queries_getUserComments__WEBPACK_IMPORTED_MODULE_2__["default"],
+    variables: {
+      username: username
+    }
+  }, function (_ref2) {
+    var loading = _ref2.loading,
+        error = _ref2.error,
+        data = _ref2.data;
+    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading");
+    if (error) return null;
+    var text = data.user.comments.map(function (comment) {
+      return comment.body;
+    }).join('');
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarChartQuery__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      text: text
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserDataList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      usercomments: data.user.comments
+    }));
+  });
+};
+
+/* harmony default export */ __webpack_exports__["default"] = (UserQuery);
+
+/***/ }),
+
 /***/ "./client/index.js":
 /*!*************************!*\
   !*** ./client/index.js ***!
@@ -1065,31 +966,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
 /* harmony import */ var apollo_cache_inmemory__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! apollo-cache-inmemory */ "./node_modules/apollo-cache-inmemory/lib/bundle.esm.js");
 /* harmony import */ var _components_App__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/App */ "./client/components/App.js");
-/* harmony import */ var _components_QueryTest__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/QueryTest */ "./client/components/QueryTest.js");
 
 
 
 
 
-
- // const cache = new InMemoryCache({
-//   dataIdFromObject: object => object.id
-// });
 
 var client = new apollo_boost__WEBPACK_IMPORTED_MODULE_0__["default"]({
-  uri: "/graphql" // cache
-
-}); // cache.writeData({
-//   data: {
-//     manUalcomments: [],
-//   },
-// });
+  uri: "/graphql"
+});
 
 var Root = function Root() {
-  console.log(client.cache.data);
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
     client: client
-  }, "?", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_5__["default"], null));
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_5__["default"], null));
 };
 
 Object(react_dom__WEBPACK_IMPORTED_MODULE_2__["render"])(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Root, null), document.getElementById("app"));

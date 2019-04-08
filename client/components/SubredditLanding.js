@@ -5,6 +5,7 @@ import top from '../queries/getTopPosts';
 import controversial from '../queries/getControversialPosts';
 import newPosts from '../queries/getNewPosts';
 import SubredditForm from './SubredditForm';
+import SubredditQuery from './SubredditQuery'
 
 export default class SubredditLanding extends Component {
   constructor(props) {
@@ -20,6 +21,12 @@ export default class SubredditLanding extends Component {
     };
 
     this.handleFormChange = this.handleFormChange.bind(this);
+    this.handleQuery = this.handleQuery.bind(this)
+
+  }
+
+  handleQuery(){
+    this.setState({ data: true })
   }
 
   handleFormChange(event) {
@@ -30,72 +37,51 @@ export default class SubredditLanding extends Component {
 
     const suggested = ["Poltics", "The_Donald", "Buddhism", "Scifi", "Javascript", "GraphQL", "WebDev"]
 
-    const {name} = this.state;
     const limit = Number(this.state.limit);
     const depth = Number(this.state.depth);
-    const {timeInterval} = this.state
-    const {sort} = this.state
+    const {sort, data, name, timeInterval} = this.state
 
-    let queryType;
-    let queryVars;
-    
-    if(sort === 'hot'){
-      queryType = hot
-      queryVars = { name, limit, depth, timeInterval }
-    } else if(sort === 'top'){
-      queryType = top
-      queryVars = { name, limit, depth, timeInterval }
-    } else if (sort === 'newPosts'){
-      queryType = newPosts
-      queryVars = { name, depth }
-    } else if (sort === 'controversial') {
-      queryType = controversial
-      queryVars = { name, depth }
+    const queryDictionary = {
+      "hot": { name, limit, depth, timeInterval },
+      "top": { name, limit, depth, timeInterval },
+      "controversial": { name, depth },
+      "newPosts": { name, depth }
     }
+    const queryVars = queryDictionary[sort]
+    
 
-    console.log(`The sort is: ${sort},
-    The queryVars are: ${queryVars},
-    The queryType is: ${queryType}
-    `)
     return (
       <div className="subreddit-landing-inner">
-        <SubredditForm handleFormChange={this.handleFormChange} />
-        <div className="subreddit-buttons-container">
-          <div className="suggested-subreddits">
-            {
-              suggested.map((subreddit, index) => {
-                return (
-                  <button
-                    className="subreddit-btn"
-                    key={`SL${index}`}
-                    onClick={() => this.setState({ name: subreddit })}
-                  >
-                    {subreddit}
-                  </button>
-                )
-              })
-            }
-          </div>
-        <ApolloConsumer className="get-comments-apollo">
-          {client => (
-            <button
-              className="btn"
-              onClick={() => {
-                client
-                  .query({
-                    query: queryType,
-                    variables: queryVars
+        {
+          data
+          ?
+          <SubredditQuery queryType={sort} queryVars={queryVars}/>
+          :
+          <div>
+            <SubredditForm handleFormChange={this.handleFormChange} />
+            <div className="subreddit-buttons-container">
+              <div className="suggested-subreddits">
+                {
+                  suggested.map((subreddit, index) => {
+                    return (
+                      <button
+                        className="subreddit-btn"
+                        key={`SL${index}`}
+                        onClick={() => this.setState({ name: subreddit })}
+                      >
+                        {subreddit}
+                      </button>
+                    )
                   })
-                  .then(data => this.props.handleData(data.data.subreddit[sort]))
-                  .catch(error => console.log(error));
-              }}
-            >
-              Get Comments!
-            </button>
-          )}
-        </ApolloConsumer>
-        </div>
+                }
+              </div>
+                <button className="btn" onClick={() => this.handleQuery()}>Get Comments!</button>            
+            </div>
+          </div>
+        }
       </div>
     );
   }
 }
+
+
