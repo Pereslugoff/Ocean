@@ -19,17 +19,13 @@ export default class SubredditLanding extends Component {
       timeInterval: 'day',
       posts: []
     };
-
-    this.handleFormChange = this.handleFormChange.bind(this);
-    this.handleQuery = this.handleQuery.bind(this)
-
   }
 
-  handleQuery(){
+  handleQuery = () => {
     this.setState({ data: true })
   }
 
-  handleFormChange(event) {
+  handleFormChange = (event) => {
     this.setState({ [event.target.name]: event.target.value });
   }
 

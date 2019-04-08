@@ -10,10 +10,9 @@ export default class PersonalityCalculator extends Component {
     this.state = {
       dataType: ''
     };
-    this.handleType = this.handleType.bind(this)
   }
 
-  handleType(type){
+  handleType = (type) => {
     this.setState({ dataType: type })
   }
 

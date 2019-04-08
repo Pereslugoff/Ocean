@@ -16,11 +16,11 @@ export default class UserLanding extends Component {
     this.handleQuery = this.handleQuery.bind(this)
   }
 
-  handleQuery(){
+  handleQuery = () => {
     this.setState({ data: true })
   }
 
-  handleFormChange(event) {
+  handleFormChange = (event) => {
     this.setState({ username: event.target.value });
   }
 
