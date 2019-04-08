@@ -1,20 +1,16 @@
 import React from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import query from "../queries/getPersonality";
+import PersonalityRadarChart from './PersonalityRadarChart'
 
 
-const GET_COMMENTS = gql`
-  {
-    ROOT_QUERY @client
-  }
-`;
-
-const RadarTest = () => (
-  <Query query={GET_COMMENTS}>
+const RadarTest = ({ text }) => (
+  <Query query={query} variables={{text}}>
     {({ loading, error, data }) => {
       if (loading) return <h1>Loading radar test</h1>
-      console.log(data)
-      return <h1>Check console</h1>
+      const traits = data.getPersonality.personality_traits_and_scores
+      return <PersonalityRadarChart traits={traits} />
     }}
   </Query>
 );

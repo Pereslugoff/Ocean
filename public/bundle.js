@@ -437,7 +437,13 @@ var QueryTest = function QueryTest(_ref) {
         data = _ref2.data;
     if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading");
     if (error) return null;
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarTest__WEBPACK_IMPORTED_MODULE_4__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserDataList__WEBPACK_IMPORTED_MODULE_3__["default"], {
+    var text = data.user.comments.map(function (comment) {
+      return comment.body;
+    }).join(''); // console.log(text)
+
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarTest__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      text: text
+    }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserDataList__WEBPACK_IMPORTED_MODULE_3__["default"], {
       usercomments: data.user.comments
     }));
   });
@@ -461,33 +467,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! graphql-tag */ "./node_modules/graphql-tag/src/index.js");
 /* harmony import */ var graphql_tag__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(graphql_tag__WEBPACK_IMPORTED_MODULE_2__);
-function _templateObject() {
-  var data = _taggedTemplateLiteral(["\n  {\n    ROOT_QUERY @client\n  }\n"]);
-
-  _templateObject = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-
-function _taggedTemplateLiteral(strings, raw) { if (!raw) { raw = strings.slice(0); } return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
+/* harmony import */ var _queries_getPersonality__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../queries/getPersonality */ "./client/queries/getPersonality.js");
+/* harmony import */ var _PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./PersonalityRadarChart */ "./client/components/PersonalityRadarChart.js");
 
 
 
 
-var GET_COMMENTS = graphql_tag__WEBPACK_IMPORTED_MODULE_2___default()(_templateObject());
 
-var RadarTest = function RadarTest() {
+
+var RadarTest = function RadarTest(_ref) {
+  var text = _ref.text;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
-    query: GET_COMMENTS
-  }, function (_ref) {
-    var loading = _ref.loading,
-        error = _ref.error,
-        data = _ref.data;
+    query: _queries_getPersonality__WEBPACK_IMPORTED_MODULE_3__["default"],
+    variables: {
+      text: text
+    }
+  }, function (_ref2) {
+    var loading = _ref2.loading,
+        error = _ref2.error,
+        data = _ref2.data;
     if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading radar test");
-    console.log(data);
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Check console");
+    var traits = data.getPersonality.personality_traits_and_scores;
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      traits: traits
+    });
   });
 };
 

@@ -9,9 +9,11 @@ const QueryTest = ({username}) => (
     {({ loading, error, data}) => {
       if (loading) return <h1>Loading</h1>;
       if (error) return null;
+      const text = data.user.comments.map(comment => comment.body).join('')
+      // console.log(text)
       return (
         <div>
-          <RadarTest />
+          <RadarTest text={text} />
           <UserDataList usercomments={data.user.comments} />
         </div>
       )
