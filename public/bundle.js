@@ -260,10 +260,20 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
 /* harmony import */ var _queries_getPersonality__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../queries/getPersonality */ "./client/queries/getPersonality.js");
 /* harmony import */ var _PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./PersonalityRadarChart */ "./client/components/PersonalityRadarChart.js");
+/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @emotion/core */ "./node_modules/@emotion/core/dist/core.browser.esm.js");
+/* harmony import */ var react_spinners__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-spinners */ "./node_modules/react-spinners/index.js");
+/* harmony import */ var react_spinners__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(react_spinners__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
+
+
+var override =  false ? undefined : {
+  name: "9g5xcs-override",
+  styles: "display:block;margin:35px auto 35px auto;label:override;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9SYWRhckNoYXJ0UXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBT29CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9SYWRhckNoYXJ0UXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRQZXJzb25hbGl0eVwiO1xuaW1wb3J0IFBlcnNvbmFsaXR5UmFkYXJDaGFydCBmcm9tIFwiLi9QZXJzb25hbGl0eVJhZGFyQ2hhcnRcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gXCJAZW1vdGlvbi9jb3JlXCI7XG5pbXBvcnQgeyBEb3RMb2FkZXIgfSBmcm9tIFwicmVhY3Qtc3Bpbm5lcnNcIjtcblxuY29uc3Qgb3ZlcnJpZGUgPSBjc3NgXG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IDM1cHggYXV0byAzNXB4IGF1dG87XG5gO1xuXG5jb25zdCBSYWRhckNoYXJ0UXVlcnkgPSAoeyB0ZXh0IH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHRleHQgfX0+XG4gICAgeyh7IGxvYWRpbmcsIGVycm9yLCBkYXRhIH0pID0+IHtcbiAgICAgIGlmIChsb2FkaW5nKVxuICAgICAgICByZXR1cm4gKFxuICAgICAgICAgIDxEb3RMb2FkZXJcbiAgICAgICAgICAgIGNzcz17b3ZlcnJpZGV9XG4gICAgICAgICAgICBzaXplVW5pdD17XCJweFwifVxuICAgICAgICAgICAgc2l6ZT17NjB9XG4gICAgICAgICAgICBjb2xvcj17XCIjZWY0M2U0XCJ9XG4gICAgICAgICAgLz5cbiAgICAgICAgKTtcblxuICAgICAgY29uc3QgdHJhaXRzID0gZGF0YS5nZXRQZXJzb25hbGl0eS5wZXJzb25hbGl0eV90cmFpdHNfYW5kX3Njb3JlcztcbiAgICAgIGNvbnNvbGUubG9nKHRyYWl0cyk7XG4gICAgICByZXR1cm4gKFxuICAgICAgICAvLyA8aDE+Q2hlY2sgY29uc29sZTwvaDE+XG4gICAgICAgIDxQZXJzb25hbGl0eVJhZGFyQ2hhcnQgdHJhaXRzPXt0cmFpdHN9IC8+XG4gICAgICApO1xuICAgIH19XG4gIDwvUXVlcnk+XG4pO1xuXG5leHBvcnQgZGVmYXVsdCBSYWRhckNoYXJ0UXVlcnk7XG4iXX0= */"
+};
 
 var RadarChartQuery = function RadarChartQuery(_ref) {
   var text = _ref.text;
@@ -276,7 +286,12 @@ var RadarChartQuery = function RadarChartQuery(_ref) {
     var loading = _ref2.loading,
         error = _ref2.error,
         data = _ref2.data;
-    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading radar test");
+    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spinners__WEBPACK_IMPORTED_MODULE_5__["DotLoader"], {
+      css: override,
+      sizeUnit: "px",
+      size: 60,
+      color: "#ef43e4"
+    });
     var traits = data.getPersonality.personality_traits_and_scores;
     console.log(traits);
     return (// <h1>Check console</h1>
@@ -613,6 +628,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _queries_getControversialPosts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../queries/getControversialPosts */ "./client/queries/getControversialPosts.js");
 /* harmony import */ var _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../queries/getNewPosts */ "./client/queries/getNewPosts.js");
 /* harmony import */ var _SubredditDataList__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./SubredditDataList */ "./client/components/SubredditDataList.js");
+/* harmony import */ var _emotion_core__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @emotion/core */ "./node_modules/@emotion/core/dist/core.browser.esm.js");
+/* harmony import */ var react_spinners__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react-spinners */ "./node_modules/react-spinners/index.js");
+/* harmony import */ var react_spinners__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(react_spinners__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -621,15 +639,22 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+var override =  false ? undefined : {
+  name: "9g5xcs-override",
+  styles: "display:block;margin:35px auto 35px auto;label:override;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9TdWJyZWRkaXRRdWVyeS5qcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFXb0IiLCJmaWxlIjoiL2hvbWUvbmljay9GdWxsU3RhY2tBY2FkZW15L29jZWFuL2NsaWVudC9jb21wb25lbnRzL1N1YnJlZGRpdFF1ZXJ5LmpzIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IFJlYWN0IGZyb20gXCJyZWFjdFwiO1xuaW1wb3J0IHsgUXVlcnkgfSBmcm9tIFwicmVhY3QtYXBvbGxvXCI7XG5pbXBvcnQgUmFkYXJDaGFydFF1ZXJ5IGZyb20gXCIuL1JhZGFyQ2hhcnRRdWVyeVwiO1xuaW1wb3J0IGhvdCBmcm9tIFwiLi4vcXVlcmllcy9nZXRIb3RQb3N0c1wiO1xuaW1wb3J0IHRvcCBmcm9tIFwiLi4vcXVlcmllcy9nZXRUb3BQb3N0c1wiO1xuaW1wb3J0IGNvbnRyb3ZlcnNpYWwgZnJvbSBcIi4uL3F1ZXJpZXMvZ2V0Q29udHJvdmVyc2lhbFBvc3RzXCI7XG5pbXBvcnQgbmV3UG9zdHMgZnJvbSBcIi4uL3F1ZXJpZXMvZ2V0TmV3UG9zdHNcIjtcbmltcG9ydCBTdWJyZWRkaXREYXRhTGlzdCBmcm9tIFwiLi9TdWJyZWRkaXREYXRhTGlzdFwiO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IERvdExvYWRlciB9IGZyb20gXCJyZWFjdC1zcGlubmVyc1wiO1xuXG5jb25zdCBvdmVycmlkZSA9IGNzc2BcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogMzVweCBhdXRvIDM1cHggYXV0bztcbmA7XG5cbmNvbnN0IFN1YnJlZGRpdFF1ZXJ5ID0gKHsgcXVlcnlUeXBlLCBxdWVyeVZhcnMgfSkgPT4ge1xuICBjb25zdCBxdWVyeURpY3Rpb25hcnkgPSB7XG4gICAgaG90OiBob3QsXG4gICAgdG9wOiB0b3AsXG4gICAgY29udHJvdmVyc2lhbDogY29udHJvdmVyc2lhbCxcbiAgICBuZXdQb3N0czogbmV3UG9zdHNcbiAgfTtcblxuICBjb25zdCBzdWJyZWRkaXRRdWVyeSA9IHF1ZXJ5RGljdGlvbmFyeVtxdWVyeVR5cGVdO1xuICByZXR1cm4gKFxuICAgIDxRdWVyeSBxdWVyeT17c3VicmVkZGl0UXVlcnl9IHZhcmlhYmxlcz17cXVlcnlWYXJzfT5cbiAgICAgIHsoeyBsb2FkaW5nLCBlcnJvciwgZGF0YSB9KSA9PiB7XG4gICAgICAgIGlmIChsb2FkaW5nKVxuICAgICAgICAgIHJldHVybiAoXG4gICAgICAgICAgICA8RG90TG9hZGVyXG4gICAgICAgICAgICAgIGNzcz17b3ZlcnJpZGV9XG4gICAgICAgICAgICAgIHNpemVVbml0PXtcInB4XCJ9XG4gICAgICAgICAgICAgIHNpemU9ezYwfVxuICAgICAgICAgICAgICBjb2xvcj17XCIjZWY0M2U0XCJ9XG4gICAgICAgICAgICAvPlxuICAgICAgICAgICk7XG4gICAgICAgIGlmIChlcnJvcikgcmV0dXJuIG51bGw7XG4gICAgICAgIGNvbnN0IHBvc3RzID0gZGF0YS5zdWJyZWRkaXRbcXVlcnlUeXBlXTtcbiAgICAgICAgY29uc3QgdGV4dCA9IHBvc3RzXG4gICAgICAgICAgLm1hcChwb3N0ID0+IHtcbiAgICAgICAgICAgIHJldHVybiBwb3N0LmNvbW1lbnRzLm1hcChjb21tZW50ID0+IHtcbiAgICAgICAgICAgICAgcmV0dXJuIGNvbW1lbnQuYm9keTtcbiAgICAgICAgICAgIH0pO1xuICAgICAgICAgIH0pXG4gICAgICAgICAgLmpvaW4oXCJcIik7XG4gICAgICAgIGNvbnNvbGUubG9nKHRleHQpO1xuICAgICAgICByZXR1cm4gKFxuICAgICAgICAgIDxkaXY+XG4gICAgICAgICAgICA8UmFkYXJDaGFydFF1ZXJ5IHRleHQ9e3RleHR9IC8+XG4gICAgICAgICAgICA8U3VicmVkZGl0RGF0YUxpc3QgcG9zdHM9e3Bvc3RzfSAvPlxuICAgICAgICAgIDwvZGl2PlxuICAgICAgICApO1xuICAgICAgfX1cbiAgICA8L1F1ZXJ5PlxuICApO1xufTtcblxuZXhwb3J0IGRlZmF1bHQgU3VicmVkZGl0UXVlcnk7XG4iXX0= */"
+};
 
 var SubredditQuery = function SubredditQuery(_ref) {
   var queryType = _ref.queryType,
       queryVars = _ref.queryVars;
   var queryDictionary = {
-    "hot": _queries_getHotPosts__WEBPACK_IMPORTED_MODULE_3__["default"],
-    "top": _queries_getTopPosts__WEBPACK_IMPORTED_MODULE_4__["default"],
-    "controversial": _queries_getControversialPosts__WEBPACK_IMPORTED_MODULE_5__["default"],
-    "newPosts": _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_6__["default"]
+    hot: _queries_getHotPosts__WEBPACK_IMPORTED_MODULE_3__["default"],
+    top: _queries_getTopPosts__WEBPACK_IMPORTED_MODULE_4__["default"],
+    controversial: _queries_getControversialPosts__WEBPACK_IMPORTED_MODULE_5__["default"],
+    newPosts: _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_6__["default"]
   };
   var subredditQuery = queryDictionary[queryType];
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["Query"], {
@@ -639,7 +664,12 @@ var SubredditQuery = function SubredditQuery(_ref) {
     var loading = _ref2.loading,
         error = _ref2.error,
         data = _ref2.data;
-    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Loading");
+    if (loading) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_spinners__WEBPACK_IMPORTED_MODULE_9__["DotLoader"], {
+      css: override,
+      sizeUnit: "px",
+      size: 60,
+      color: "#ef43e4"
+    });
     if (error) return null;
     var posts = data.subreddit[queryType];
     var text = posts.map(function (post) {
@@ -925,9 +955,9 @@ __webpack_require__.r(__webpack_exports__);
 
 
 var override =  false ? undefined : {
-  name: "3vn6pu-override",
-  styles: "display:block;margin:0 auto;border-color:red;label:override;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUW9CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSAncmVhY3QnXG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tICcuLi9xdWVyaWVzL2dldFVzZXJDb21tZW50cyc7XG5pbXBvcnQgVXNlckRhdGFMaXN0IGZyb20gJy4vVXNlckRhdGFMaXN0JztcbmltcG9ydCBSYWRhckNoYXJ0UXVlcnkgZnJvbSAnLi9SYWRhckNoYXJ0UXVlcnknO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSAnQGVtb3Rpb24vY29yZSc7XG5pbXBvcnQgeyBEb3RMb2FkZXIgfSBmcm9tICdyZWFjdC1zcGlubmVycyc7XG5cbmNvbnN0IG92ZXJyaWRlID0gY3NzYFxuICAgIGRpc3BsYXk6IGJsb2NrO1xuICAgIG1hcmdpbjogMCBhdXRvO1xuICAgIGJvcmRlci1jb2xvcjogcmVkO1xuYDtcblxuY29uc3QgVXNlclF1ZXJ5ID0gKHt1c2VybmFtZX0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7dXNlcm5hbWV9fT5cbiAgICB7KHsgbG9hZGluZywgZXJyb3IsIGRhdGF9KSA9PiB7XG4gICAgICBpZiAobG9hZGluZykgcmV0dXJuIChcbiAgICAgICAgPERvdExvYWRlclxuICAgICAgICBjc3M9e292ZXJyaWRlfVxuICAgICAgICBzaXplVW5pdD17XCJweFwifVxuICAgICAgICBzaXplPXs2MH1cbiAgICAgICAgY29sb3I9eycjZWY0M2U0J31cbiAgICAgIC8+XG4gICAgICAgICk7XG4gICAgICBpZiAoZXJyb3IpIHJldHVybiBudWxsO1xuICAgICAgY29uc3QgdGV4dCA9IGRhdGEudXNlci5jb21tZW50cy5tYXAoY29tbWVudCA9PiBjb21tZW50LmJvZHkpLmpvaW4oJycpXG4gICAgICByZXR1cm4gKFxuICAgICAgICA8ZGl2PlxuICAgICAgICAgIDxSYWRhckNoYXJ0UXVlcnkgdGV4dD17dGV4dH0gLz5cbiAgICAgICAgICA8VXNlckRhdGFMaXN0IHVzZXJjb21tZW50cz17ZGF0YS51c2VyLmNvbW1lbnRzfSAvPlxuICAgICAgICA8L2Rpdj5cbiAgICAgIC8vICAgPERvdExvYWRlclxuICAgICAgLy8gICBjc3M9e292ZXJyaWRlfVxuICAgICAgLy8gICBzaXplVW5pdD17XCJweFwifVxuICAgICAgLy8gICBzaXplPXs2MH1cbiAgICAgIC8vICAgY29sb3I9eycjZWY0M2U0J31cbiAgICAgIC8vIC8+XG4gICAgICApXG4gICAgfX1cbiAgPC9RdWVyeT5cbilcblxuZXhwb3J0IGRlZmF1bHQgVXNlclF1ZXJ5Il19 */"
+  name: "9g5xcs-override",
+  styles: "display:block;margin:35px auto 35px auto;label:override;",
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUW9CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRVc2VyQ29tbWVudHNcIjtcbmltcG9ydCBVc2VyRGF0YUxpc3QgZnJvbSBcIi4vVXNlckRhdGFMaXN0XCI7XG5pbXBvcnQgUmFkYXJDaGFydFF1ZXJ5IGZyb20gXCIuL1JhZGFyQ2hhcnRRdWVyeVwiO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IERvdExvYWRlciB9IGZyb20gXCJyZWFjdC1zcGlubmVyc1wiO1xuXG5jb25zdCBvdmVycmlkZSA9IGNzc2BcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogMzVweCBhdXRvIDM1cHggYXV0bztcbmA7XG5cbmNvbnN0IFVzZXJRdWVyeSA9ICh7IHVzZXJuYW1lIH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHVzZXJuYW1lIH19PlxuICAgIHsoeyBsb2FkaW5nLCBlcnJvciwgZGF0YSB9KSA9PiB7XG4gICAgICBpZiAobG9hZGluZylcbiAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICA8RG90TG9hZGVyXG4gICAgICAgICAgICBjc3M9e292ZXJyaWRlfVxuICAgICAgICAgICAgc2l6ZVVuaXQ9e1wicHhcIn1cbiAgICAgICAgICAgIHNpemU9ezYwfVxuICAgICAgICAgICAgY29sb3I9e1wiI2VmNDNlNFwifVxuICAgICAgICAgIC8+XG4gICAgICAgICk7XG4gICAgICBpZiAoZXJyb3IpIHJldHVybiBudWxsO1xuICAgICAgY29uc3QgdGV4dCA9IGRhdGEudXNlci5jb21tZW50cy5tYXAoY29tbWVudCA9PiBjb21tZW50LmJvZHkpLmpvaW4oXCJcIik7XG4gICAgICByZXR1cm4gKFxuICAgICAgICA8ZGl2PlxuICAgICAgICAgIDxSYWRhckNoYXJ0UXVlcnkgdGV4dD17dGV4dH0gLz5cbiAgICAgICAgICA8VXNlckRhdGFMaXN0IHVzZXJjb21tZW50cz17ZGF0YS51c2VyLmNvbW1lbnRzfSAvPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICk7XG4gICAgfX1cbiAgPC9RdWVyeT5cbik7XG5cbmV4cG9ydCBkZWZhdWx0IFVzZXJRdWVyeTtcbiJdfQ== */"
 };
 
 var UserQuery = function UserQuery(_ref) {
@@ -945,23 +975,17 @@ var UserQuery = function UserQuery(_ref) {
       css: override,
       sizeUnit: "px",
       size: 60,
-      color: '#ef43e4'
+      color: "#ef43e4"
     });
     if (error) return null;
     var text = data.user.comments.map(function (comment) {
       return comment.body;
-    }).join('');
+    }).join("");
     return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarChartQuery__WEBPACK_IMPORTED_MODULE_4__["default"], {
       text: text
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserDataList__WEBPACK_IMPORTED_MODULE_3__["default"], {
       usercomments: data.user.comments
-    })) //   <DotLoader
-    //   css={override}
-    //   sizeUnit={"px"}
-    //   size={60}
-    //   color={'#ef43e4'}
-    // />
-    ;
+    }));
   });
 };
 
