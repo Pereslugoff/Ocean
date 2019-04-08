@@ -28,9 +28,9 @@ const Root = () => {
   console.log(client.cache.data)
   return (
   <ApolloProvider client={client}>
-    {/* <h1>Test</h1> */}
-    <QueryTest username={"baby_back_ribz"}/>
-    {/* <App /> */}
+    {/* <h1>Test</h1> */}?
+    {/* <QueryTest username={"baby_back_ribz"}/> */}
+    <App />
   </ApolloProvider>
   )
 };

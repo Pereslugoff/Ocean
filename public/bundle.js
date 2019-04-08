@@ -240,9 +240,7 @@ function (_Component) {
         className: "personality-view"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityGraph__WEBPACK_IMPORTED_MODULE_2__["default"], {
         text: text
-      }), this.state.dataType === "user" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserDataList__WEBPACK_IMPORTED_MODULE_5__["default"], {
-        usercomments: this.state.usercomments
-      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditDataList__WEBPACK_IMPORTED_MODULE_1__["default"], {
+      }), this.state.dataType === "user" ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserLanding__WEBPACK_IMPORTED_MODULE_4__["default"], null) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditDataList__WEBPACK_IMPORTED_MODULE_1__["default"], {
         posts: this.state.posts
       })) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "form-view"
@@ -923,6 +921,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
 /* harmony import */ var _UserForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserForm */ "./client/components/UserForm.js");
 /* harmony import */ var _queries_getUserComments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../queries/getUserComments */ "./client/queries/getUserComments.js");
+/* harmony import */ var _QueryTest__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./QueryTest */ "./client/components/QueryTest.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -940,6 +939,7 @@ function _assertThisInitialized(self) { if (self === void 0) { throw new Referen
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
 
 
 
@@ -967,6 +967,13 @@ function (_Component) {
   }
 
   _createClass(UserLanding, [{
+    key: "handleQuery",
+    value: function handleQuery() {
+      this.setState({
+        data: true
+      });
+    }
+  }, {
     key: "handleFormChange",
     value: function handleFormChange(event) {
       this.setState({
@@ -978,10 +985,16 @@ function (_Component) {
     value: function render() {
       var _this2 = this;
 
-      var username = this.state.username;
+      var _this$state = this.state,
+          username = _this$state.username,
+          data = _this$state.data;
       var famousUsers = ["spez", "kn0thing", "neiltyson", "GovSchwarzenegger", "Here_Comes_The_King", "williamshatner"];
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-landing-container"
+      }, data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_QueryTest__WEBPACK_IMPORTED_MODULE_4__["default"], {
+        username: username
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "get-user-comments-button-container"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
         handleFormChange: this.handleFormChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
@@ -998,23 +1011,12 @@ function (_Component) {
             });
           }
         }, user);
-      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "get-user-comments-button-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_1__["ApolloConsumer"], null, function (client) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-          className: "btn",
-          onClick: function onClick() {
-            client.query({
-              query: _queries_getUserComments__WEBPACK_IMPORTED_MODULE_3__["default"],
-              variables: {
-                username: username
-              }
-            }).then(function (data) {
-              return _this2.props.handleData(data.data.user.comments);
-            });
-          }
-        }, "Get Comments!");
-      }))));
+      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+        className: "btn",
+        onClick: function onClick() {
+          return _this2.handleQuery();
+        }
+      }, "Get Comments!")));
     }
   }]);
 
@@ -1022,6 +1024,27 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
+{
+  /* <ApolloConsumer>
+  {client => (
+   <button
+     className="btn"
+     onClick={() => {
+       client
+         .query({
+           query,
+           variables: { username }
+         })
+         .then(data =>
+           this.props.handleData(data.data.user.comments)
+         );
+     }}
+   >
+     Get Comments!
+   </button>
+  )}
+  </ApolloConsumer> */
+}
 
 /***/ }),
 
@@ -1066,9 +1089,7 @@ var Root = function Root() {
   console.log(client.cache.data);
   return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(react_apollo__WEBPACK_IMPORTED_MODULE_3__["ApolloProvider"], {
     client: client
-  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_QueryTest__WEBPACK_IMPORTED_MODULE_6__["default"], {
-    username: "baby_back_ribz"
-  }));
+  }, "?", react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(_components_App__WEBPACK_IMPORTED_MODULE_5__["default"], null));
 };
 
 Object(react_dom__WEBPACK_IMPORTED_MODULE_2__["render"])(react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(Root, null), document.getElementById("app"));

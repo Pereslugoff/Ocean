@@ -74,7 +74,7 @@ export default class PersonalityCalculator extends Component {
                 {
                   this.state.dataType === "user"
                   ?
-                    <UserDataList usercomments={this.state.usercomments} />
+                    <UserLanding />
                   :
                     <SubredditDataList posts={this.state.posts} />
                 }
