@@ -17,8 +17,10 @@ const SubredditForm = props => (
     <input
       type="number"
       min="1"
+      max="4"
       name="limit"
       id="limit"
+      step="1"
       placeholder="Num Posts: 1"
       autoComplete="off"
       required
@@ -26,6 +28,7 @@ const SubredditForm = props => (
     <input
       type="number"
       min="1"
+      max="4"
       name="depth"
       id="depth"
       placeholder="Comment Depth: 1"

@@ -53,7 +53,7 @@ export default class SubredditLanding extends Component {
           ?
           <SubredditQuery queryType={sort} queryVars={queryVars}/>
           :
-          <div>
+          <div className="subreddit-landing-inner">
             <SubredditForm handleFormChange={this.handleFormChange} />
             <div className="subreddit-buttons-container">
               <div className="suggested-subreddits">

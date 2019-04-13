@@ -124,11 +124,11 @@ input[type=number]::-webkit-outer-spin-button {
   cursor: default;
   display: flex;
   justify-content: flex-start;
-  height: 10%;
+  height: 75px;
   background-color: rgb(20, 20, 20);
   color: white;
   width: 100%;
-  box-shadow: 1px 1px 1px rgb(15, 15, 15);
+  box-shadow: 0px 3px 3px rgb(15, 15, 15);
 }
 
 #app-header h1{
@@ -142,9 +142,15 @@ input[type=number]::-webkit-outer-spin-button {
 .btn {
   border: none;
   padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(187, 187, 187);
+  font-weight: bold;
+  color: rgb(48, 48, 48);
+  box-shadow: 0px 2px 2px rgb(31, 31, 31);  
 }
 
 .btn:hover {
+  border: none;
   background-color: #ef43e4;
 }
 
@@ -165,11 +171,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .single-calc-container {
   background-color: rgb(65, 65, 65);
-  width: 30vw;
-  height: 80vh;
+  width: 460px;
+  height: 600px;
   overflow-x: hidden;
   overflow-y: scroll;
-  box-shadow: 1px 1px 1px rgb(15, 15, 15);
+  box-shadow: 0px 3px 3px rgb(31, 31, 31);
+  border: 1px solid rgb(60, 60 , 60);
+  border-radius: 15px;
 }
 
 .single-calc-container::-webkit-scrollbar {
@@ -184,11 +192,6 @@ outline: 1px solid #ef43e4;
 .form-view {
   height: 100%;
   width: 100%;
-}
-
-button{
-  border-radius: 5px;
-  box-shadow: 1px 1px 1px rgb(15, 15, 15);
 }
 
 .user-landing-container {

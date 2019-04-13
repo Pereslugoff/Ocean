@@ -405,14 +405,17 @@ var SubredditForm = function SubredditForm(props) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "number",
     min: "1",
+    max: "4",
     name: "limit",
     id: "limit",
+    step: "1",
     placeholder: "Num Posts: 1",
     autoComplete: "off",
     required: true
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "number",
     min: "1",
+    max: "4",
     name: "depth",
     id: "depth",
     placeholder: "Comment Depth: 1",
@@ -578,7 +581,9 @@ function (_Component) {
       }, data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditQuery__WEBPACK_IMPORTED_MODULE_7__["default"], {
         queryType: sort,
         queryVars: queryVars
-      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "subreddit-landing-inner"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_6__["default"], {
         handleFormChange: this.handleFormChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subreddit-buttons-container"

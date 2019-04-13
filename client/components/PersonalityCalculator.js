@@ -16,8 +16,6 @@ export default class PersonalityCalculator extends Component {
     this.setState({ dataType: type })
   }
 
-
-
   render() {
     const { dataType } = this.state
     return (
