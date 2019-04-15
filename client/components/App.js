@@ -6,7 +6,8 @@ import PersonalityCalculator from "./PersonalityCalculator";
 const App = () => (
   <div className="app-container">
     <div id="app-header">
-      <h1>Ocean | A personality calculator for Reddit</h1>
+      <h1>Ocean</h1>
+      <h2>A personality calculator for Reddit</h2>
     </div>
     <div className="calc-container">
       <PersonalityCalculator />

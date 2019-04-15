@@ -59,7 +59,7 @@ input {
   border-left: none;
   border-right: none;
   border-bottom: 2px solid white;
-  background-color: rgb(65, 65, 65);
+  background-color: rgb(37, 62, 70);
   width: 85%;
   height: 10%;
   color: #ef43e4;
@@ -111,7 +111,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .app-container {
   margin: 0;
-  background-color: rgb(45, 45, 45);
+  background-color: rgb(15, 50, 61);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -123,21 +123,23 @@ input[type=number]::-webkit-outer-spin-button {
 #app-header {
   cursor: default;
   display: flex;
-  justify-content: flex-start;
+  flex-direction: column;
   height: 75px;
-  background-color: rgb(20, 20, 20);
   color: white;
   width: 100%;
-  box-shadow: 0px 3px 3px rgb(15, 15, 15);
+  text-align: left;
+  margin-top:5px;
 }
 
-#app-header h1{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0.25em;
+h1{
+  margin: 0;
+  margin-left: 15px;
 }
 
+h2{
+  margin: 0;
+  margin-left: 45px;
+}
 
 .btn {
   border: none;
@@ -170,14 +172,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .single-calc-container {
-  background-color: rgb(65, 65, 65);
+  background-color: rgb(37, 62, 70);
   width: 460px;
   height: 600px;
   overflow-x: hidden;
   overflow-y: scroll;
-  box-shadow: 0px 3px 3px rgb(31, 31, 31);
-  border: 1px solid rgb(60, 60 , 60);
-  border-radius: 15px;
+  box-shadow: 0px 3px 3px rgb(17, 27, 32);
+  border: 1px solid rgb(31, 52, 59);
 }
 
 .single-calc-container::-webkit-scrollbar {
@@ -192,6 +193,10 @@ outline: 1px solid #ef43e4;
 .form-view {
   height: 100%;
   width: 100%;
+}
+
+.get-user-comments-button-container{
+  height: 100%;
 }
 
 .user-landing-container {

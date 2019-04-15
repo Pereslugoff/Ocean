@@ -106,7 +106,7 @@ var App = function App() {
     className: "app-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     id: "app-header"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Ocean | A personality calculator for Reddit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Ocean"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "A personality calculator for Reddit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "calc-container"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityCalculator__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityCalculator__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
 };
@@ -803,10 +803,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return UserLanding; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
-/* harmony import */ var _UserForm__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserForm */ "./client/components/UserForm.js");
-/* harmony import */ var _queries_getUserComments__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../queries/getUserComments */ "./client/queries/getUserComments.js");
-/* harmony import */ var _UserQuery__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./UserQuery */ "./client/components/UserQuery.js");
+/* harmony import */ var _UserForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./UserForm */ "./client/components/UserForm.js");
+/* harmony import */ var _UserQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./UserQuery */ "./client/components/UserQuery.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -826,8 +824,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
 
 
 
@@ -877,11 +873,11 @@ function (_Component) {
       var famousUsers = ["spez", "kn0thing", "neiltyson", "GovSchwarzenegger", "Here_Comes_The_King", "williamshatner"];
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-landing-container"
-      }, data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserQuery__WEBPACK_IMPORTED_MODULE_4__["default"], {
+      }, data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserQuery__WEBPACK_IMPORTED_MODULE_2__["default"], {
         username: username
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "get-user-comments-button-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
         handleFormChange: this.handleFormChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-buttons-container"
@@ -910,27 +906,6 @@ function (_Component) {
 }(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 
-{
-  /* <ApolloConsumer>
-  {client => (
-   <button
-     className="btn"
-     onClick={() => {
-       client
-         .query({
-           query,
-           variables: { username }
-         })
-         .then(data =>
-           this.props.handleData(data.data.user.comments)
-         );
-     }}
-   >
-     Get Comments!
-   </button>
-  )}
-  </ApolloConsumer> */
-}
 
 /***/ }),
 
@@ -962,7 +937,7 @@ __webpack_require__.r(__webpack_exports__);
 var override =  false ? undefined : {
   name: "9g5xcs-override",
   styles: "display:block;margin:35px auto 35px auto;label:override;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUW9CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRVc2VyQ29tbWVudHNcIjtcbmltcG9ydCBVc2VyRGF0YUxpc3QgZnJvbSBcIi4vVXNlckRhdGFMaXN0XCI7XG5pbXBvcnQgUmFkYXJDaGFydFF1ZXJ5IGZyb20gXCIuL1JhZGFyQ2hhcnRRdWVyeVwiO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IERvdExvYWRlciB9IGZyb20gXCJyZWFjdC1zcGlubmVyc1wiO1xuXG5jb25zdCBvdmVycmlkZSA9IGNzc2BcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogMzVweCBhdXRvIDM1cHggYXV0bztcbmA7XG5cbmNvbnN0IFVzZXJRdWVyeSA9ICh7IHVzZXJuYW1lIH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHVzZXJuYW1lIH19PlxuICAgIHsoeyBsb2FkaW5nLCBlcnJvciwgZGF0YSB9KSA9PiB7XG4gICAgICBpZiAobG9hZGluZylcbiAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICA8RG90TG9hZGVyXG4gICAgICAgICAgICBjc3M9e292ZXJyaWRlfVxuICAgICAgICAgICAgc2l6ZVVuaXQ9e1wicHhcIn1cbiAgICAgICAgICAgIHNpemU9ezYwfVxuICAgICAgICAgICAgY29sb3I9e1wiI2VmNDNlNFwifVxuICAgICAgICAgIC8+XG4gICAgICAgICk7XG4gICAgICBpZiAoZXJyb3IpIHJldHVybiBudWxsO1xuICAgICAgY29uc3QgdGV4dCA9IGRhdGEudXNlci5jb21tZW50cy5tYXAoY29tbWVudCA9PiBjb21tZW50LmJvZHkpLmpvaW4oXCJcIik7XG4gICAgICByZXR1cm4gKFxuICAgICAgICA8ZGl2PlxuICAgICAgICAgIDxSYWRhckNoYXJ0UXVlcnkgdGV4dD17dGV4dH0gLz5cbiAgICAgICAgICA8VXNlckRhdGFMaXN0IHVzZXJjb21tZW50cz17ZGF0YS51c2VyLmNvbW1lbnRzfSAvPlxuICAgICAgICA8L2Rpdj5cbiAgICAgICk7XG4gICAgfX1cbiAgPC9RdWVyeT5cbik7XG5cbmV4cG9ydCBkZWZhdWx0IFVzZXJRdWVyeTtcbiJdfQ== */"
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUW9CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRVc2VyQ29tbWVudHNcIjtcbmltcG9ydCBVc2VyRGF0YUxpc3QgZnJvbSBcIi4vVXNlckRhdGFMaXN0XCI7XG5pbXBvcnQgUmFkYXJDaGFydFF1ZXJ5IGZyb20gXCIuL1JhZGFyQ2hhcnRRdWVyeVwiO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IERvdExvYWRlciB9IGZyb20gXCJyZWFjdC1zcGlubmVyc1wiO1xuXG5jb25zdCBvdmVycmlkZSA9IGNzc2BcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogMzVweCBhdXRvIDM1cHggYXV0bztcbmA7XG5cbmNvbnN0IFVzZXJRdWVyeSA9ICh7IHVzZXJuYW1lIH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHVzZXJuYW1lIH19PlxuICAgIHsoeyBsb2FkaW5nLCBlcnJvciwgZGF0YSB9KSA9PiB7XG4gICAgICBpZiAobG9hZGluZylcbiAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICA8RG90TG9hZGVyXG4gICAgICAgICAgICBjc3M9e292ZXJyaWRlfVxuICAgICAgICAgICAgc2l6ZVVuaXQ9e1wicHhcIn1cbiAgICAgICAgICAgIHNpemU9ezYwfVxuICAgICAgICAgICAgY29sb3I9e1wiI2VmNDNlNFwifVxuICAgICAgICAgIC8+XG4gICAgICAgICk7XG4gICAgICBpZiAoZXJyb3IpIHJldHVybiA8cD4ke2Vycm9yfTwvcD47XG4gICAgICBjb25zdCB0ZXh0ID0gZGF0YS51c2VyLmNvbW1lbnRzLm1hcChjb21tZW50ID0+IGNvbW1lbnQuYm9keSkuam9pbihcIlwiKTtcbiAgICAgIHJldHVybiAoXG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgPFJhZGFyQ2hhcnRRdWVyeSB0ZXh0PXt0ZXh0fSAvPlxuICAgICAgICAgIDxVc2VyRGF0YUxpc3QgdXNlcmNvbW1lbnRzPXtkYXRhLnVzZXIuY29tbWVudHN9IC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKTtcbiAgICB9fVxuICA8L1F1ZXJ5PlxuKTtcblxuZXhwb3J0IGRlZmF1bHQgVXNlclF1ZXJ5O1xuIl19 */"
 };
 
 var UserQuery = function UserQuery(_ref) {
@@ -982,7 +957,7 @@ var UserQuery = function UserQuery(_ref) {
       size: 60,
       color: "#ef43e4"
     });
-    if (error) return null;
+    if (error) return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("p", null, "$", error);
     var text = data.user.comments.map(function (comment) {
       return comment.body;
     }).join("");
@@ -3172,7 +3147,7 @@ var weakMemoize = function weakMemoize(func) {
 /*!*****************************************************!*\
   !*** ./node_modules/apollo-boost/lib/bundle.esm.js ***!
   \*****************************************************/
-/*! exports provided: ApolloClient, ObservableQuery, NetworkStatus, isApolloError, ApolloError, FetchType, Observable, getOperationName, createOperation, makePromise, toPromise, fromPromise, fromError, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory, HttpLink, gql, default */
+/*! exports provided: HttpLink, gql, default, ApolloClient, ObservableQuery, NetworkStatus, isApolloError, ApolloError, FetchType, Observable, getOperationName, createOperation, makePromise, toPromise, fromPromise, fromError, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

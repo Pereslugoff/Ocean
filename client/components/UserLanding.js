@@ -1,7 +1,5 @@
 import React, { Component } from "react";
-import { ApolloConsumer } from "react-apollo";
 import UserForm from "./UserForm";
-import query from "../queries/getUserComments";
 import UserQuery from "./UserQuery";
 
 export default class UserLanding extends Component {
@@ -66,24 +64,3 @@ export default class UserLanding extends Component {
     );
   }
 }
-
-
-{/* <ApolloConsumer>
-{client => (
-  <button
-    className="btn"
-    onClick={() => {
-      client
-        .query({
-          query,
-          variables: { username }
-        })
-        .then(data =>
-          this.props.handleData(data.data.user.comments)
-        );
-    }}
-  >
-    Get Comments!
-  </button>
-)}
-</ApolloConsumer> */}

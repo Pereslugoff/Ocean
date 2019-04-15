@@ -23,7 +23,7 @@ const UserQuery = ({ username }) => (
             color={"#ef43e4"}
           />
         );
-      if (error) return null;
+      if (error) return <p>${error}</p>;
       const text = data.user.comments.map(comment => comment.body).join("");
       return (
         <div>
