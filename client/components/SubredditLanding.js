@@ -1,9 +1,4 @@
 import React, { Component } from "react";
-import { ApolloConsumer } from "react-apollo";
-import hot from "../queries/getHotPosts";
-import top from '../queries/getTopPosts';
-import controversial from '../queries/getControversialPosts';
-import newPosts from '../queries/getNewPosts';
 import SubredditForm from './SubredditForm';
 import SubredditQuery from './SubredditQuery'
 
