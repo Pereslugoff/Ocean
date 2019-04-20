@@ -470,13 +470,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return SubredditLanding; });
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_apollo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-apollo */ "./node_modules/react-apollo/react-apollo.esm.js");
-/* harmony import */ var _queries_getHotPosts__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../queries/getHotPosts */ "./client/queries/getHotPosts.js");
-/* harmony import */ var _queries_getTopPosts__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../queries/getTopPosts */ "./client/queries/getTopPosts.js");
-/* harmony import */ var _queries_getControversialPosts__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../queries/getControversialPosts */ "./client/queries/getControversialPosts.js");
-/* harmony import */ var _queries_getNewPosts__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../queries/getNewPosts */ "./client/queries/getNewPosts.js");
-/* harmony import */ var _SubredditForm__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./SubredditForm */ "./client/components/SubredditForm.js");
-/* harmony import */ var _SubredditQuery__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./SubredditQuery */ "./client/components/SubredditQuery.js");
+/* harmony import */ var _SubredditForm__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./SubredditForm */ "./client/components/SubredditForm.js");
+/* harmony import */ var _SubredditQuery__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./SubredditQuery */ "./client/components/SubredditQuery.js");
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -496,11 +491,6 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-
-
-
-
 
 
 
@@ -578,12 +568,12 @@ function (_Component) {
       var queryVars = queryDictionary[sort];
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subreddit-landing-inner"
-      }, data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditQuery__WEBPACK_IMPORTED_MODULE_7__["default"], {
+      }, data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditQuery__WEBPACK_IMPORTED_MODULE_2__["default"], {
         queryType: sort,
         queryVars: queryVars
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subreddit-landing-inner"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
         handleFormChange: this.handleFormChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subreddit-buttons-container"

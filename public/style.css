@@ -1,7 +1,7 @@
 body {
   margin: 0;
   color: white;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Roboto';
 }
 
 .landing-container{
@@ -112,6 +112,13 @@ input[type=number]::-webkit-outer-spin-button {
 .app-container {
   margin: 0;
   background-color: rgb(15, 50, 61);
+  background: repeating-linear-gradient(
+  45deg,
+  rgb(15, 50, 61),
+  rgb(15, 50, 61) 10px,
+  rgb(33, 66, 77) 10px,
+  rgb(33, 66, 77) 20px
+);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -134,11 +141,13 @@ input[type=number]::-webkit-outer-spin-button {
 h1{
   margin: 0;
   margin-left: 15px;
+  font-weight: 300;
 }
 
 h2{
   margin: 0;
   margin-left: 45px;
+  font-weight: 100;
 }
 
 .btn {
