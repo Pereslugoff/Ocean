@@ -1,0 +1,44 @@
+.user-landing-container {
+  height: 100%;
+  width: 100%;
+}
+
+.get-user-comments-button-container {
+  height: 100%;
+
+  .btn {
+    margin-top: 50px;
+  }
+}
+
+.user-landing-container {
+  .calc-form {
+    height: 30%;
+  }
+}
+
+.user-buttons-container {
+  height: 35%;
+  width: 85%;
+  margin: auto;
+  font-size: 1.25rem;
+  font-weight: 100;
+  text-align: left;
+  color: $text-color;
+  line-height: 1.35;
+
+  & :first-child {
+    margin-top: 5px;
+  }
+
+  .user-btn {
+    font-size: 1.1rem;
+    font-weight: 100;
+    transition: all 0.25s ease-in-out;
+
+    &:hover {
+      color: $highlight-color;
+      cursor: pointer;
+    }
+  }
+}

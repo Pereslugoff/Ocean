@@ -247,7 +247,7 @@ function (_Component) {
     });
 
     _this.state = {
-      dataType: ''
+      dataType: "user"
     };
     return _this;
   }
@@ -946,19 +946,18 @@ function (_Component) {
         handleFormChange: this.handleFormChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-buttons-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "recommended-users"
-      }, famousUsers.map(function (user, index) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Suggested Users:", famousUsers.map(function (user, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-btn",
           key: "UB".concat(index),
           onClick: function onClick() {
             return _this2.setState({
-              username: user
+              username: user,
+              data: true
             });
           }
         }, user);
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn",
         onClick: function onClick() {
           return _this2.handleQuery();
@@ -3212,7 +3211,7 @@ var weakMemoize = function weakMemoize(func) {
 /*!*****************************************************!*\
   !*** ./node_modules/apollo-boost/lib/bundle.esm.js ***!
   \*****************************************************/
-/*! exports provided: HttpLink, gql, default, ApolloClient, ObservableQuery, NetworkStatus, isApolloError, ApolloError, FetchType, Observable, getOperationName, createOperation, makePromise, toPromise, fromPromise, fromError, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory */
+/*! exports provided: ApolloClient, ObservableQuery, NetworkStatus, isApolloError, ApolloError, FetchType, Observable, getOperationName, createOperation, makePromise, toPromise, fromPromise, fromError, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory, HttpLink, gql, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

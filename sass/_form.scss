@@ -1,0 +1,63 @@
+.calc-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+}
+
+input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-bottom: 1px solid white;
+  background-color: rgb(37, 62, 70);
+  width: 85%;
+  height: 1.5rem;
+  color: $highlight-color;
+  font-size: 1rem;
+  transition: all 0.75s ease-in-out;
+
+  &:focus {
+    outline: none;
+    color: $highlight-color;
+    border-bottom: 2px solid $highlight-color;
+  }
+
+  &:valid {
+    color: $highlight-color;
+  }
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.select-group {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.select-group select {
+  padding: 5px;
+  border: 0;
+}
+
+.select-group select:focus {
+  outline: none;
+}
+
+.select-group select:hover {
+  background-color: $highlight-color;
+}
+
+.select-group select option:hover {
+  background-color: white;
+}
