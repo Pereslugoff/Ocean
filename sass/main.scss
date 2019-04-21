@@ -1,0 +1,50 @@
+@import "config";
+@import "header";
+@import "calculator";
+@import "mobile";
+
+html {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Roboto";
+  min-height: 100%;
+}
+
+body::-webkit-scrollbar {
+  width: 0;
+}
+
+#app {
+  min-height: 100%;
+}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  height: 100%;
+  background-color: $background-primary;
+  background: repeating-linear-gradient(
+    45deg,
+    $background-primary,
+    $background-primary 10px,
+    $background-secondary 10px,
+    $background-secondary 20px
+  );
+}
+
+.calc-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 75px;
+  width: 90%;
+  height: 90%;
+}
