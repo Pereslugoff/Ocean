@@ -1,0 +1,40 @@
+$background-primary: rgb(15, 50, 61);
+$background-secondary: rgb(33, 66, 77);
+$text-color: #fff;
+$calc-background: rgb(37, 62, 70);
+$box-shadow: 0px 3px 3px rgb(17, 27, 32);
+$box-border: 1px solid rgb(31, 52, 59);
+$highlight-color: #ef43e4;
+
+@mixin mediaSm {
+  @media screen and (max-width: 500px) {
+    @content;
+  }
+}
+
+@mixin mediaMd {
+  @media screen and (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin mediaLg {
+  @media screen and (min-width: 769px) {
+    @content;
+  }
+}
+
+@mixin mediaXl {
+  @media screen and (min-width: 1171px) {
+    @content;
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

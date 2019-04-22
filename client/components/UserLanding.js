@@ -7,20 +7,20 @@ export default class UserLanding extends Component {
     super(props);
     this.state = {
       username: "",
-      data: false,
+      data: false
     };
 
     this.handleFormChange = this.handleFormChange.bind(this);
-    this.handleQuery = this.handleQuery.bind(this)
+    this.handleQuery = this.handleQuery.bind(this);
   }
 
   handleQuery = () => {
-    this.setState({ data: true })
-  }
+    this.setState({ data: true });
+  };
 
-  handleFormChange = (event) => {
+  handleFormChange = event => {
     this.setState({ username: event.target.value });
-  }
+  };
 
   render() {
     const { username, data } = this.state;
@@ -35,31 +35,32 @@ export default class UserLanding extends Component {
     ];
     return (
       <div className="user-landing-container">
-          {
-            data
-            ?
-            <UserQuery username={username} />
-            :
-            <div className="get-user-comments-button-container">
-              <UserForm handleFormChange={this.handleFormChange} />
-              <div className="user-buttons-container">
-                <div className="recommended-users">
-                  {famousUsers.map((user, index) => {
-                    return (
-                      <button
-                        className="user-btn"
-                        key={`UB${index}`}
-                        onClick={() => this.setState({ username: user })}
-                      >
-                        {user}
-                      </button>
-                    );
-                  })}
-                </div>
-                </div>
-              <button className="btn" onClick={() => this.handleQuery()}>Get Comments!</button>
+        {data ? (
+          <UserQuery username={username} />
+        ) : (
+          <div className="get-user-comments-button-container">
+            <UserForm handleFormChange={this.handleFormChange} />
+            <div className="user-buttons-container">
+              Suggested Users:
+              {famousUsers.map((user, index) => {
+                return (
+                  <div
+                    className="user-btn"
+                    key={`UB${index}`}
+                    onClick={() =>
+                      this.setState({ username: user, data: true })
+                    }
+                  >
+                    {user}
+                  </div>
+                );
+              })}
             </div>
-          }
+            <button className="btn" onClick={() => this.handleQuery()}>
+              Get Comments!
+            </button>
+          </div>
+        )}
       </div>
     );
   }

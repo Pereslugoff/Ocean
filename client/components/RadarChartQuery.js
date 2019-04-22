@@ -24,11 +24,7 @@ const RadarChartQuery = ({ text }) => (
         );
 
       const traits = data.getPersonality.personality_traits_and_scores;
-      console.log(traits);
-      return (
-        // <h1>Check console</h1>
-        <PersonalityRadarChart traits={traits} />
-      );
+      return <PersonalityRadarChart traits={traits} />;
     }}
   </Query>
 );

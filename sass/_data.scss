@@ -1,0 +1,43 @@
+.data-list {
+  overflow-x: hidden;
+}
+
+.data-container {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 250px;
+}
+
+.recharts-wrapper {
+  width: 100%;
+  margin: 0;
+}
+
+.recharts-surface {
+  width: 100%;
+}
+
+ul {
+  padding-inline-start: 0;
+}
+
+li {
+  list-style: none;
+  word-wrap: break-word;
+  padding-bottom: 4%;
+  font-size: 0.85em;
+  color: $text-color;
+}
+
+li:hover {
+  color: #ef43e4;
+}

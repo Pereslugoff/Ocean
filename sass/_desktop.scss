@@ -1,0 +1,8 @@
+@include mediaLg {
+  .calc-container {
+    display: flex;
+    flex-direction: row !important;
+    width: 100% !important;
+    flex-wrap: wrap;
+  }
+}

@@ -98,18 +98,91 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _PersonalityCalculator__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./PersonalityCalculator */ "./client/components/PersonalityCalculator.js");
+function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
+
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
+
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
-var App = function App() {
-  return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "app-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    id: "app-header"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Ocean"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "A personality calculator for Reddit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-    className: "calc-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityCalculator__WEBPACK_IMPORTED_MODULE_1__["default"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityCalculator__WEBPACK_IMPORTED_MODULE_1__["default"], null)));
-};
+
+var App =
+/*#__PURE__*/
+function (_Component) {
+  _inherits(App, _Component);
+
+  function App() {
+    var _getPrototypeOf2;
+
+    var _this;
+
+    _classCallCheck(this, App);
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(App)).call.apply(_getPrototypeOf2, [this].concat(args)));
+
+    _defineProperty(_assertThisInitialized(_this), "state", {
+      numCalculators: 1
+    });
+
+    _defineProperty(_assertThisInitialized(_this), "addCalculator", function () {
+      var numCalculators = _this.state.numCalculators;
+
+      _this.setState({
+        numCalculators: numCalculators + 1
+      });
+    });
+
+    return _this;
+  }
+
+  _createClass(App, [{
+    key: "render",
+    value: function render() {
+      var calculators = [];
+      var numCalculators = this.state.numCalculators;
+
+      for (var i = 0; i < numCalculators; i++) {
+        calculators.push(react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityCalculator__WEBPACK_IMPORTED_MODULE_1__["default"], null));
+      }
+
+      return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "app-container"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "app-header"
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h1", null, "Ocean"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("h2", null, "A personality calculator for Reddit")), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "calc-container"
+      }, calculators, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "add-calculator",
+        onClick: this.addCalculator
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "line"
+      }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+        className: "line"
+      }))));
+    }
+  }]);
+
+  return App;
+}(react__WEBPACK_IMPORTED_MODULE_0__["Component"]);
 
 /* harmony default export */ __webpack_exports__["default"] = (App);
 
@@ -174,7 +247,7 @@ function (_Component) {
     });
 
     _this.state = {
-      dataType: ''
+      dataType: ""
     };
     return _this;
   }
@@ -212,6 +285,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var recharts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! recharts */ "./node_modules/recharts/es6/index.js");
 
 
+var windowWidth = window.outerWidth;
+var width;
+
+if (windowWidth < 11800) {
+  width = 325;
+} else {
+  width = 425;
+}
 
 var PersonalityRadar = function PersonalityRadar(props) {
   var data = props.traits.map(function (trait) {
@@ -226,7 +307,7 @@ var PersonalityRadar = function PersonalityRadar(props) {
   });
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(recharts__WEBPACK_IMPORTED_MODULE_1__["RadarChart"], {
     outerRadius: 90,
-    width: 425,
+    width: width,
     height: 250,
     data: data
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(recharts__WEBPACK_IMPORTED_MODULE_1__["PolarGrid"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(recharts__WEBPACK_IMPORTED_MODULE_1__["Radar"], {
@@ -238,7 +319,8 @@ var PersonalityRadar = function PersonalityRadar(props) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(recharts__WEBPACK_IMPORTED_MODULE_1__["Tooltip"], {
     formatter: function formatter(a, b, c) {
       return [a, c.payload.name];
-    }
+    },
+    label: "I love cheese"
   }));
 };
 
@@ -272,7 +354,7 @@ __webpack_require__.r(__webpack_exports__);
 var override =  false ? undefined : {
   name: "9g5xcs-override",
   styles: "display:block;margin:35px auto 35px auto;label:override;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9SYWRhckNoYXJ0UXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBT29CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9SYWRhckNoYXJ0UXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRQZXJzb25hbGl0eVwiO1xuaW1wb3J0IFBlcnNvbmFsaXR5UmFkYXJDaGFydCBmcm9tIFwiLi9QZXJzb25hbGl0eVJhZGFyQ2hhcnRcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gXCJAZW1vdGlvbi9jb3JlXCI7XG5pbXBvcnQgeyBEb3RMb2FkZXIgfSBmcm9tIFwicmVhY3Qtc3Bpbm5lcnNcIjtcblxuY29uc3Qgb3ZlcnJpZGUgPSBjc3NgXG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IDM1cHggYXV0byAzNXB4IGF1dG87XG5gO1xuXG5jb25zdCBSYWRhckNoYXJ0UXVlcnkgPSAoeyB0ZXh0IH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHRleHQgfX0+XG4gICAgeyh7IGxvYWRpbmcsIGVycm9yLCBkYXRhIH0pID0+IHtcbiAgICAgIGlmIChsb2FkaW5nKVxuICAgICAgICByZXR1cm4gKFxuICAgICAgICAgIDxEb3RMb2FkZXJcbiAgICAgICAgICAgIGNzcz17b3ZlcnJpZGV9XG4gICAgICAgICAgICBzaXplVW5pdD17XCJweFwifVxuICAgICAgICAgICAgc2l6ZT17NjB9XG4gICAgICAgICAgICBjb2xvcj17XCIjZWY0M2U0XCJ9XG4gICAgICAgICAgLz5cbiAgICAgICAgKTtcblxuICAgICAgY29uc3QgdHJhaXRzID0gZGF0YS5nZXRQZXJzb25hbGl0eS5wZXJzb25hbGl0eV90cmFpdHNfYW5kX3Njb3JlcztcbiAgICAgIGNvbnNvbGUubG9nKHRyYWl0cyk7XG4gICAgICByZXR1cm4gKFxuICAgICAgICAvLyA8aDE+Q2hlY2sgY29uc29sZTwvaDE+XG4gICAgICAgIDxQZXJzb25hbGl0eVJhZGFyQ2hhcnQgdHJhaXRzPXt0cmFpdHN9IC8+XG4gICAgICApO1xuICAgIH19XG4gIDwvUXVlcnk+XG4pO1xuXG5leHBvcnQgZGVmYXVsdCBSYWRhckNoYXJ0UXVlcnk7XG4iXX0= */"
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9SYWRhckNoYXJ0UXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBT29CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9SYWRhckNoYXJ0UXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRQZXJzb25hbGl0eVwiO1xuaW1wb3J0IFBlcnNvbmFsaXR5UmFkYXJDaGFydCBmcm9tIFwiLi9QZXJzb25hbGl0eVJhZGFyQ2hhcnRcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gXCJAZW1vdGlvbi9jb3JlXCI7XG5pbXBvcnQgeyBEb3RMb2FkZXIgfSBmcm9tIFwicmVhY3Qtc3Bpbm5lcnNcIjtcblxuY29uc3Qgb3ZlcnJpZGUgPSBjc3NgXG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IDM1cHggYXV0byAzNXB4IGF1dG87XG5gO1xuXG5jb25zdCBSYWRhckNoYXJ0UXVlcnkgPSAoeyB0ZXh0IH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHRleHQgfX0+XG4gICAgeyh7IGxvYWRpbmcsIGVycm9yLCBkYXRhIH0pID0+IHtcbiAgICAgIGlmIChsb2FkaW5nKVxuICAgICAgICByZXR1cm4gKFxuICAgICAgICAgIDxEb3RMb2FkZXJcbiAgICAgICAgICAgIGNzcz17b3ZlcnJpZGV9XG4gICAgICAgICAgICBzaXplVW5pdD17XCJweFwifVxuICAgICAgICAgICAgc2l6ZT17NjB9XG4gICAgICAgICAgICBjb2xvcj17XCIjZWY0M2U0XCJ9XG4gICAgICAgICAgLz5cbiAgICAgICAgKTtcblxuICAgICAgY29uc3QgdHJhaXRzID0gZGF0YS5nZXRQZXJzb25hbGl0eS5wZXJzb25hbGl0eV90cmFpdHNfYW5kX3Njb3JlcztcbiAgICAgIHJldHVybiA8UGVyc29uYWxpdHlSYWRhckNoYXJ0IHRyYWl0cz17dHJhaXRzfSAvPjtcbiAgICB9fVxuICA8L1F1ZXJ5PlxuKTtcblxuZXhwb3J0IGRlZmF1bHQgUmFkYXJDaGFydFF1ZXJ5O1xuIl19 */"
 };
 
 var RadarChartQuery = function RadarChartQuery(_ref) {
@@ -293,12 +375,9 @@ var RadarChartQuery = function RadarChartQuery(_ref) {
       color: "#ef43e4"
     });
     var traits = data.getPersonality.personality_traits_and_scores;
-    console.log(traits);
-    return (// <h1>Check console</h1>
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        traits: traits
-      })
-    );
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      traits: traits
+    });
   });
 };
 
@@ -388,10 +467,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
-var SubredditForm = function SubredditForm(props) {
+var SubredditForm = function SubredditForm(_ref) {
+  var handleFormChange = _ref.handleFormChange,
+      depth = _ref.depth,
+      limit = _ref.limit;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onChange: function onChange(event) {
-      return props.handleFormChange(event);
+      return handleFormChange(event);
     },
     className: "calc-form",
     autoComplete: "off"
@@ -399,29 +481,30 @@ var SubredditForm = function SubredditForm(props) {
     type: "text",
     name: "name",
     id: "name",
-    placeholder: "Subreddit Name: \"Politics\"",
-    autoComplete: "off",
-    required: true
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "number",
-    min: "1",
-    max: "4",
-    name: "limit",
-    id: "limit",
-    step: "1",
-    placeholder: "Num Posts: 1",
-    autoComplete: "off",
-    required: true
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "number",
-    min: "1",
-    max: "4",
-    name: "depth",
-    id: "depth",
-    placeholder: "Comment Depth: 1",
+    placeholder: "Subreddit Name: e.g. Politics",
     autoComplete: "off",
     required: true
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "slider-fields"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Number of Posts: ", limit), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "range",
+    min: "1",
+    max: "4",
+    name: "limit",
+    value: limit,
+    id: "limit",
+    className: "slider"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "slider-fields"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Depth of Comments: ", depth), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "range",
+    min: "1",
+    max: "4",
+    name: "depth",
+    value: depth,
+    id: "depth",
+    className: "slider"
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "select-group"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     name: "sort"
@@ -523,8 +606,8 @@ function (_Component) {
       limit: 1,
       depth: 1,
       data: false,
-      sort: 'hot',
-      timeInterval: 'day',
+      sort: "hot",
+      timeInterval: "day",
       posts: []
     };
     return _this;
@@ -544,43 +627,45 @@ function (_Component) {
           name = _this$state.name,
           timeInterval = _this$state.timeInterval;
       var queryDictionary = {
-        "hot": {
+        hot: {
           name: name,
           limit: limit,
           depth: depth,
           timeInterval: timeInterval
         },
-        "top": {
+        top: {
           name: name,
           limit: limit,
           depth: depth,
           timeInterval: timeInterval
         },
-        "controversial": {
+        controversial: {
           name: name,
           depth: depth
         },
-        "newPosts": {
+        newPosts: {
           name: name,
           depth: depth
         }
       };
       var queryVars = queryDictionary[sort];
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "subreddit-landing-inner"
+        className: "subreddit-landing-container"
       }, data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditQuery__WEBPACK_IMPORTED_MODULE_2__["default"], {
         queryType: sort,
         queryVars: queryVars
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subreddit-landing-inner"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        handleFormChange: this.handleFormChange
+        handleFormChange: this.handleFormChange,
+        limit: limit,
+        depth: depth
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "subreddit-buttons-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "suggested-subreddits"
-      }, suggested.map(function (subreddit, index) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "suggested-title"
+      }, "Suggested Subreddits:"), suggested.map(function (subreddit, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "subreddit-btn",
           key: "SL".concat(index),
           onClick: function onClick() {
@@ -594,7 +679,7 @@ function (_Component) {
         onClick: function onClick() {
           return _this2.handleQuery();
         }
-      }, "Get Comments!"))));
+      }, "Get Comments!")));
     }
   }]);
 
@@ -702,13 +787,15 @@ var TypePicker = function TypePicker(props) {
   var handleType = props.handleType;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "picker-container"
-  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn",
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "type-selection",
     onClick: function onClick() {
       return handleType("subreddit");
     }
-  }, "Search Subreddits"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
-    className: "btn",
+  }, "Search Subreddits"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+    className: "type-border"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "type-selection",
     onClick: function onClick() {
       return handleType("user");
     }
@@ -871,19 +958,18 @@ function (_Component) {
         handleFormChange: this.handleFormChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "user-buttons-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "recommended-users"
-      }, famousUsers.map(function (user, index) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Suggested Users:", famousUsers.map(function (user, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "user-btn",
           key: "UB".concat(index),
           onClick: function onClick() {
             return _this2.setState({
-              username: user
+              username: user,
+              data: true
             });
           }
         }, user);
-      }))), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
         className: "btn",
         onClick: function onClick() {
           return _this2.handleQuery();
@@ -927,7 +1013,7 @@ __webpack_require__.r(__webpack_exports__);
 var override =  false ? undefined : {
   name: "9g5xcs-override",
   styles: "display:block;margin:35px auto 35px auto;label:override;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUW9CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRVc2VyQ29tbWVudHNcIjtcbmltcG9ydCBVc2VyRGF0YUxpc3QgZnJvbSBcIi4vVXNlckRhdGFMaXN0XCI7XG5pbXBvcnQgUmFkYXJDaGFydFF1ZXJ5IGZyb20gXCIuL1JhZGFyQ2hhcnRRdWVyeVwiO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IERvdExvYWRlciB9IGZyb20gXCJyZWFjdC1zcGlubmVyc1wiO1xuXG5jb25zdCBvdmVycmlkZSA9IGNzc2BcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogMzVweCBhdXRvIDM1cHggYXV0bztcbmA7XG5cbmNvbnN0IFVzZXJRdWVyeSA9ICh7IHVzZXJuYW1lIH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHVzZXJuYW1lIH19PlxuICAgIHsoeyBsb2FkaW5nLCBlcnJvciwgZGF0YSB9KSA9PiB7XG4gICAgICBpZiAobG9hZGluZylcbiAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICA8RG90TG9hZGVyXG4gICAgICAgICAgICBjc3M9e292ZXJyaWRlfVxuICAgICAgICAgICAgc2l6ZVVuaXQ9e1wicHhcIn1cbiAgICAgICAgICAgIHNpemU9ezYwfVxuICAgICAgICAgICAgY29sb3I9e1wiI2VmNDNlNFwifVxuICAgICAgICAgIC8+XG4gICAgICAgICk7XG4gICAgICBpZiAoZXJyb3IpIHJldHVybiA8cD4ke2Vycm9yfTwvcD47XG4gICAgICBjb25zdCB0ZXh0ID0gZGF0YS51c2VyLmNvbW1lbnRzLm1hcChjb21tZW50ID0+IGNvbW1lbnQuYm9keSkuam9pbihcIlwiKTtcbiAgICAgIHJldHVybiAoXG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgPFJhZGFyQ2hhcnRRdWVyeSB0ZXh0PXt0ZXh0fSAvPlxuICAgICAgICAgIDxVc2VyRGF0YUxpc3QgdXNlcmNvbW1lbnRzPXtkYXRhLnVzZXIuY29tbWVudHN9IC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKTtcbiAgICB9fVxuICA8L1F1ZXJ5PlxuKTtcblxuZXhwb3J0IGRlZmF1bHQgVXNlclF1ZXJ5O1xuIl19 */"
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUW9CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRVc2VyQ29tbWVudHNcIjtcbmltcG9ydCBVc2VyRGF0YUxpc3QgZnJvbSBcIi4vVXNlckRhdGFMaXN0XCI7XG5pbXBvcnQgUmFkYXJDaGFydFF1ZXJ5IGZyb20gXCIuL1JhZGFyQ2hhcnRRdWVyeVwiO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IERvdExvYWRlciB9IGZyb20gXCJyZWFjdC1zcGlubmVyc1wiO1xuXG5jb25zdCBvdmVycmlkZSA9IGNzc2BcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogMzVweCBhdXRvIDM1cHggYXV0bztcbmA7XG5cbmNvbnN0IFVzZXJRdWVyeSA9ICh7IHVzZXJuYW1lIH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHVzZXJuYW1lIH19PlxuICAgIHsoeyBsb2FkaW5nLCBlcnJvciwgZGF0YSB9KSA9PiB7XG4gICAgICBpZiAobG9hZGluZylcbiAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICA8RG90TG9hZGVyXG4gICAgICAgICAgICBjc3M9e292ZXJyaWRlfVxuICAgICAgICAgICAgc2l6ZVVuaXQ9e1wicHhcIn1cbiAgICAgICAgICAgIHNpemU9ezYwfVxuICAgICAgICAgICAgY29sb3I9e1wiI2VmNDNlNFwifVxuICAgICAgICAgIC8+XG4gICAgICAgICk7XG4gICAgICBpZiAoZXJyb3IpIHJldHVybiA8cD4ke2Vycm9yfTwvcD47XG4gICAgICBjb25zdCB0ZXh0ID0gZGF0YS51c2VyLmNvbW1lbnRzLm1hcChjb21tZW50ID0+IGNvbW1lbnQuYm9keSkuam9pbihcIlwiKTtcbiAgICAgIHJldHVybiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZGF0YS1saXN0XCI+XG4gICAgICAgICAgPFJhZGFyQ2hhcnRRdWVyeSB0ZXh0PXt0ZXh0fSAvPlxuICAgICAgICAgIDxVc2VyRGF0YUxpc3QgdXNlcmNvbW1lbnRzPXtkYXRhLnVzZXIuY29tbWVudHN9IC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKTtcbiAgICB9fVxuICA8L1F1ZXJ5PlxuKTtcblxuZXhwb3J0IGRlZmF1bHQgVXNlclF1ZXJ5O1xuIl19 */"
 };
 
 var UserQuery = function UserQuery(_ref) {
@@ -951,7 +1037,9 @@ var UserQuery = function UserQuery(_ref) {
     var text = data.user.comments.map(function (comment) {
       return comment.body;
     }).join("");
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarChartQuery__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "data-list"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarChartQuery__WEBPACK_IMPORTED_MODULE_4__["default"], {
       text: text
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserDataList__WEBPACK_IMPORTED_MODULE_3__["default"], {
       usercomments: data.user.comments
@@ -3137,7 +3225,7 @@ var weakMemoize = function weakMemoize(func) {
 /*!*****************************************************!*\
   !*** ./node_modules/apollo-boost/lib/bundle.esm.js ***!
   \*****************************************************/
-/*! exports provided: HttpLink, gql, default, ApolloClient, ObservableQuery, NetworkStatus, isApolloError, ApolloError, FetchType, Observable, getOperationName, createOperation, makePromise, toPromise, fromPromise, fromError, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory */
+/*! exports provided: ApolloClient, ObservableQuery, NetworkStatus, isApolloError, ApolloError, FetchType, Observable, getOperationName, createOperation, makePromise, toPromise, fromPromise, fromError, empty, from, split, concat, ApolloLink, execute, InMemoryCache, defaultDataIdFromObject, StoreReader, assertIdValue, WriteError, enhanceErrorWithDocument, StoreWriter, HeuristicFragmentMatcher, IntrospectionFragmentMatcher, ObjectCache, defaultNormalizedCacheFactory, HttpLink, gql, default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

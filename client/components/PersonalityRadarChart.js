@@ -7,6 +7,15 @@ import {
   Tooltip
 } from "recharts";
 
+const windowWidth = window.outerWidth;
+
+let width;
+
+if (windowWidth < 11800) {
+  width = 325;
+} else {
+  width = 425;
+}
 
 const PersonalityRadar = props => {
   const data = props.traits.map(trait => {
@@ -16,7 +25,7 @@ const PersonalityRadar = props => {
     return { name, A: score, fullMark: 100 };
   });
   return (
-    <RadarChart outerRadius={90} width={425} height={250} data={data}>
+    <RadarChart outerRadius={90} width={width} height={250} data={data}>
       <PolarGrid />
       <Radar
         name="Score"
@@ -26,9 +35,10 @@ const PersonalityRadar = props => {
         fillOpacity={0.6}
       />
       <Tooltip
-            formatter={(a, b, c) => {
-              return [a, c.payload.name]
-            }}
+        formatter={(a, b, c) => {
+          return [a, c.payload.name];
+        }}
+        label="I love cheese"
       />
     </RadarChart>
   );
