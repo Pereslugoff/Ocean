@@ -1,8 +1,8 @@
 import React from "react";
 
-const SubredditForm = props => (
+const SubredditForm = ({ handleFormChange, depth, limit }) => (
   <form
-    onChange={event => props.handleFormChange(event)}
+    onChange={event => handleFormChange(event)}
     className="calc-form"
     autoComplete="off"
   >
@@ -10,28 +10,34 @@ const SubredditForm = props => (
       type="text"
       name="name"
       id="name"
-      placeholder={`Subreddit Name: "Politics"`}
+      placeholder={`Subreddit Name: e.g. Politics`}
       autoComplete="off"
       required
     />
-    <label>Number of Posts:</label>
-    <input
-      type="range"
-      min="1"
-      max="4"
-      name="limit"
-      id="limit"
-      className="slider"
-    />
-    <label>Depth of Comments:</label>
-    <input
-      type="range"
-      min="1"
-      max="4"
-      name="depth"
-      id="depth"
-      className="slider"
-    />
+    <div className="slider-fields">
+      <label>Number of Posts: {limit}</label>
+      <input
+        type="range"
+        min="1"
+        max="4"
+        name="limit"
+        value={limit}
+        id="limit"
+        className="slider"
+      />
+    </div>
+    <div className="slider-fields">
+      <label>Depth of Comments: {depth}</label>
+      <input
+        type="range"
+        min="1"
+        max="4"
+        name="depth"
+        value={depth}
+        id="depth"
+        className="slider"
+      />
+    </div>
     <div className="select-group">
       <select name="sort">
         <option value="">Sort by:</option>

@@ -5,7 +5,18 @@
   height: 500px;
   box-shadow: $box-shadow;
   border: $box-border;
+  overflow-x: hidden;
+  overflow-y: scroll;
   animation: fade-in 0.5s ease-in;
+}
+
+.single-calc-container::-webkit-scrollbar {
+  width: 1em;
+}
+
+.single-calc-container::-webkit-scrollbar-thumb {
+  background-color: #ef43e4;
+  outline: 1px solid #ef43e4;
 }
 
 .picker-container {
@@ -33,48 +44,5 @@
       transition: all 0.75s ease-in-out;
       transform: scale(1.1);
     }
-  }
-}
-
-.add-calculator {
-  margin: 25px 0 25px 0;
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background-color: $calc-background;
-  box-shadow: $box-shadow;
-  border: $box-border;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s ease-in-out;
-
-  &:hover {
-    transform: scale(1.1);
-  }
-
-  & :nth-child(1) {
-    transform: rotate(90deg) translate(1px, 0);
-    z-index: 1;
-  }
-
-  & :nth-child(2) {
-    transform: translate(0, -1px);
-  }
-  .line {
-    width: 50px;
-    height: 2px;
-    background-color: $text-color;
-    margin: 0;
-  }
-}
-
-@keyframes fade-in {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }

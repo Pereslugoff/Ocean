@@ -7,7 +7,7 @@ export default class PersonalityCalculator extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      dataType: "subreddit"
+      dataType: ""
     };
   }
 

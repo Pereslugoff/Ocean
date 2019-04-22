@@ -247,7 +247,7 @@ function (_Component) {
     });
 
     _this.state = {
-      dataType: "subreddit"
+      dataType: ""
     };
     return _this;
   }
@@ -285,6 +285,16 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var recharts__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! recharts */ "./node_modules/recharts/es6/index.js");
 
 
+var windowWidth = window.outerWidth;
+var width;
+
+if (windowWidth < 800) {
+  width = 325;
+} else {
+  width = 425;
+}
+
+console.log(windowWidth, width);
 
 var PersonalityRadar = function PersonalityRadar(props) {
   var data = props.traits.map(function (trait) {
@@ -299,7 +309,7 @@ var PersonalityRadar = function PersonalityRadar(props) {
   });
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(recharts__WEBPACK_IMPORTED_MODULE_1__["RadarChart"], {
     outerRadius: 90,
-    width: 425,
+    width: width,
     height: 250,
     data: data
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(recharts__WEBPACK_IMPORTED_MODULE_1__["PolarGrid"], null), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(recharts__WEBPACK_IMPORTED_MODULE_1__["Radar"], {
@@ -461,10 +471,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
 
 
-var SubredditForm = function SubredditForm(props) {
+var SubredditForm = function SubredditForm(_ref) {
+  var handleFormChange = _ref.handleFormChange,
+      depth = _ref.depth,
+      limit = _ref.limit;
   return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("form", {
     onChange: function onChange(event) {
-      return props.handleFormChange(event);
+      return handleFormChange(event);
     },
     className: "calc-form",
     autoComplete: "off"
@@ -472,24 +485,30 @@ var SubredditForm = function SubredditForm(props) {
     type: "text",
     name: "name",
     id: "name",
-    placeholder: "Subreddit Name: \"Politics\"",
+    placeholder: "Subreddit Name: e.g. Politics",
     autoComplete: "off",
     required: true
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Number of Posts:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "slider-fields"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Number of Posts: ", limit), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "range",
     min: "1",
     max: "4",
     name: "limit",
+    value: limit,
     id: "limit",
     className: "slider"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Depth of Comments:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+    className: "slider-fields"
+  }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Depth of Comments: ", depth), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
     type: "range",
     min: "1",
     max: "4",
     name: "depth",
+    value: depth,
     id: "depth",
     className: "slider"
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+  })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "select-group"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
     name: "sort"
@@ -642,10 +661,14 @@ function (_Component) {
       }) : react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "subreddit-landing-inner"
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
-        handleFormChange: this.handleFormChange
+        handleFormChange: this.handleFormChange,
+        limit: limit,
+        depth: depth
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "suggested-subreddits"
-      }, "Suggested Subreddits:", suggested.map(function (subreddit, index) {
+      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("span", {
+        id: "suggested-title"
+      }, "Suggested Subreddits:"), suggested.map(function (subreddit, index) {
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "subreddit-btn",
           key: "SL".concat(index),
@@ -994,7 +1017,7 @@ __webpack_require__.r(__webpack_exports__);
 var override =  false ? undefined : {
   name: "9g5xcs-override",
   styles: "display:block;margin:35px auto 35px auto;label:override;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUW9CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRVc2VyQ29tbWVudHNcIjtcbmltcG9ydCBVc2VyRGF0YUxpc3QgZnJvbSBcIi4vVXNlckRhdGFMaXN0XCI7XG5pbXBvcnQgUmFkYXJDaGFydFF1ZXJ5IGZyb20gXCIuL1JhZGFyQ2hhcnRRdWVyeVwiO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IERvdExvYWRlciB9IGZyb20gXCJyZWFjdC1zcGlubmVyc1wiO1xuXG5jb25zdCBvdmVycmlkZSA9IGNzc2BcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogMzVweCBhdXRvIDM1cHggYXV0bztcbmA7XG5cbmNvbnN0IFVzZXJRdWVyeSA9ICh7IHVzZXJuYW1lIH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHVzZXJuYW1lIH19PlxuICAgIHsoeyBsb2FkaW5nLCBlcnJvciwgZGF0YSB9KSA9PiB7XG4gICAgICBpZiAobG9hZGluZylcbiAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICA8RG90TG9hZGVyXG4gICAgICAgICAgICBjc3M9e292ZXJyaWRlfVxuICAgICAgICAgICAgc2l6ZVVuaXQ9e1wicHhcIn1cbiAgICAgICAgICAgIHNpemU9ezYwfVxuICAgICAgICAgICAgY29sb3I9e1wiI2VmNDNlNFwifVxuICAgICAgICAgIC8+XG4gICAgICAgICk7XG4gICAgICBpZiAoZXJyb3IpIHJldHVybiA8cD4ke2Vycm9yfTwvcD47XG4gICAgICBjb25zdCB0ZXh0ID0gZGF0YS51c2VyLmNvbW1lbnRzLm1hcChjb21tZW50ID0+IGNvbW1lbnQuYm9keSkuam9pbihcIlwiKTtcbiAgICAgIHJldHVybiAoXG4gICAgICAgIDxkaXY+XG4gICAgICAgICAgPFJhZGFyQ2hhcnRRdWVyeSB0ZXh0PXt0ZXh0fSAvPlxuICAgICAgICAgIDxVc2VyRGF0YUxpc3QgdXNlcmNvbW1lbnRzPXtkYXRhLnVzZXIuY29tbWVudHN9IC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKTtcbiAgICB9fVxuICA8L1F1ZXJ5PlxuKTtcblxuZXhwb3J0IGRlZmF1bHQgVXNlclF1ZXJ5O1xuIl19 */"
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBUW9CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9Vc2VyUXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRVc2VyQ29tbWVudHNcIjtcbmltcG9ydCBVc2VyRGF0YUxpc3QgZnJvbSBcIi4vVXNlckRhdGFMaXN0XCI7XG5pbXBvcnQgUmFkYXJDaGFydFF1ZXJ5IGZyb20gXCIuL1JhZGFyQ2hhcnRRdWVyeVwiO1xuaW1wb3J0IHsgY3NzIH0gZnJvbSBcIkBlbW90aW9uL2NvcmVcIjtcbmltcG9ydCB7IERvdExvYWRlciB9IGZyb20gXCJyZWFjdC1zcGlubmVyc1wiO1xuXG5jb25zdCBvdmVycmlkZSA9IGNzc2BcbiAgZGlzcGxheTogYmxvY2s7XG4gIG1hcmdpbjogMzVweCBhdXRvIDM1cHggYXV0bztcbmA7XG5cbmNvbnN0IFVzZXJRdWVyeSA9ICh7IHVzZXJuYW1lIH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHVzZXJuYW1lIH19PlxuICAgIHsoeyBsb2FkaW5nLCBlcnJvciwgZGF0YSB9KSA9PiB7XG4gICAgICBpZiAobG9hZGluZylcbiAgICAgICAgcmV0dXJuIChcbiAgICAgICAgICA8RG90TG9hZGVyXG4gICAgICAgICAgICBjc3M9e292ZXJyaWRlfVxuICAgICAgICAgICAgc2l6ZVVuaXQ9e1wicHhcIn1cbiAgICAgICAgICAgIHNpemU9ezYwfVxuICAgICAgICAgICAgY29sb3I9e1wiI2VmNDNlNFwifVxuICAgICAgICAgIC8+XG4gICAgICAgICk7XG4gICAgICBpZiAoZXJyb3IpIHJldHVybiA8cD4ke2Vycm9yfTwvcD47XG4gICAgICBjb25zdCB0ZXh0ID0gZGF0YS51c2VyLmNvbW1lbnRzLm1hcChjb21tZW50ID0+IGNvbW1lbnQuYm9keSkuam9pbihcIlwiKTtcbiAgICAgIHJldHVybiAoXG4gICAgICAgIDxkaXYgY2xhc3NOYW1lPVwiZGF0YS1saXN0XCI+XG4gICAgICAgICAgPFJhZGFyQ2hhcnRRdWVyeSB0ZXh0PXt0ZXh0fSAvPlxuICAgICAgICAgIDxVc2VyRGF0YUxpc3QgdXNlcmNvbW1lbnRzPXtkYXRhLnVzZXIuY29tbWVudHN9IC8+XG4gICAgICAgIDwvZGl2PlxuICAgICAgKTtcbiAgICB9fVxuICA8L1F1ZXJ5PlxuKTtcblxuZXhwb3J0IGRlZmF1bHQgVXNlclF1ZXJ5O1xuIl19 */"
 };
 
 var UserQuery = function UserQuery(_ref) {
@@ -1018,7 +1041,9 @@ var UserQuery = function UserQuery(_ref) {
     var text = data.user.comments.map(function (comment) {
       return comment.body;
     }).join("");
-    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarChartQuery__WEBPACK_IMPORTED_MODULE_4__["default"], {
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
+      className: "data-list"
+    }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_RadarChartQuery__WEBPACK_IMPORTED_MODULE_4__["default"], {
       text: text
     }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_UserDataList__WEBPACK_IMPORTED_MODULE_3__["default"], {
       usercomments: data.user.comments

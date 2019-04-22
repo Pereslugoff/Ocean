@@ -26,7 +26,7 @@ const UserQuery = ({ username }) => (
       if (error) return <p>${error}</p>;
       const text = data.user.comments.map(comment => comment.body).join("");
       return (
-        <div>
+        <div className="data-list">
           <RadarChartQuery text={text} />
           <UserDataList usercomments={data.user.comments} />
         </div>
