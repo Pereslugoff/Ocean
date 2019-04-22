@@ -1,0 +1,40 @@
+.subreddit-landing-container {
+  height: 100%;
+}
+
+.subreddit-landing-inner {
+  height: 100%;
+  .calc-form {
+    height: 40%;
+    font-weight: 100;
+    color: $text-color;
+    text-align: left;
+  }
+}
+
+.subreddit-buttons-container {
+  height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.suggested-subreddits {
+  height: 150px;
+  width: 85%;
+  text-align: left;
+  color: $text-color;
+  margin: 30px auto 0 auto;
+}
+
+.subreddit-btn {
+  font-size: 1.1rem;
+  font-weight: 100;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    color: $highlight-color;
+    cursor: pointer;
+  }
+}

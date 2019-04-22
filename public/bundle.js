@@ -247,7 +247,7 @@ function (_Component) {
     });
 
     _this.state = {
-      dataType: "user"
+      dataType: "subreddit"
     };
     return _this;
   }
@@ -475,25 +475,20 @@ var SubredditForm = function SubredditForm(props) {
     placeholder: "Subreddit Name: \"Politics\"",
     autoComplete: "off",
     required: true
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "number",
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Number of Posts:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "range",
     min: "1",
     max: "4",
     name: "limit",
     id: "limit",
-    step: "1",
-    placeholder: "Num Posts: 1",
-    autoComplete: "off",
-    required: true
-  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
-    type: "number",
+    className: "slider"
+  }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("label", null, "Depth of Comments:"), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("input", {
+    type: "range",
     min: "1",
     max: "4",
     name: "depth",
     id: "depth",
-    placeholder: "Comment Depth: 1",
-    autoComplete: "off",
-    required: true
+    className: "slider"
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
     className: "select-group"
   }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("select", {
@@ -596,8 +591,8 @@ function (_Component) {
       limit: 1,
       depth: 1,
       data: false,
-      sort: 'hot',
-      timeInterval: 'day',
+      sort: "hot",
+      timeInterval: "day",
       posts: []
     };
     return _this;
@@ -617,30 +612,30 @@ function (_Component) {
           name = _this$state.name,
           timeInterval = _this$state.timeInterval;
       var queryDictionary = {
-        "hot": {
+        hot: {
           name: name,
           limit: limit,
           depth: depth,
           timeInterval: timeInterval
         },
-        "top": {
+        top: {
           name: name,
           limit: limit,
           depth: depth,
           timeInterval: timeInterval
         },
-        "controversial": {
+        controversial: {
           name: name,
           depth: depth
         },
-        "newPosts": {
+        newPosts: {
           name: name,
           depth: depth
         }
       };
       var queryVars = queryDictionary[sort];
       return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "subreddit-landing-inner"
+        className: "subreddit-landing-container"
       }, data ? react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditQuery__WEBPACK_IMPORTED_MODULE_2__["default"], {
         queryType: sort,
         queryVars: queryVars
@@ -649,11 +644,9 @@ function (_Component) {
       }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_SubredditForm__WEBPACK_IMPORTED_MODULE_1__["default"], {
         handleFormChange: this.handleFormChange
       }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
-        className: "subreddit-buttons-container"
-      }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
         className: "suggested-subreddits"
-      }, suggested.map(function (subreddit, index) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("button", {
+      }, "Suggested Subreddits:", suggested.map(function (subreddit, index) {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", {
           className: "subreddit-btn",
           key: "SL".concat(index),
           onClick: function onClick() {
@@ -667,7 +660,7 @@ function (_Component) {
         onClick: function onClick() {
           return _this2.handleQuery();
         }
-      }, "Get Comments!"))));
+      }, "Get Comments!")));
     }
   }]);
 

@@ -14,26 +14,23 @@ const SubredditForm = props => (
       autoComplete="off"
       required
     />
+    <label>Number of Posts:</label>
     <input
-      type="number"
+      type="range"
       min="1"
       max="4"
       name="limit"
       id="limit"
-      step="1"
-      placeholder="Num Posts: 1"
-      autoComplete="off"
-      required
+      className="slider"
     />
+    <label>Depth of Comments:</label>
     <input
-      type="number"
+      type="range"
       min="1"
       max="4"
       name="depth"
       id="depth"
-      placeholder="Comment Depth: 1"
-      autoComplete="off"
-      required
+      className="slider"
     />
     <div className="select-group">
       <select name="sort">
