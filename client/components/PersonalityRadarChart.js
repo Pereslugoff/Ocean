@@ -11,13 +11,11 @@ const windowWidth = window.outerWidth;
 
 let width;
 
-if (windowWidth < 800) {
+if (windowWidth < 11800) {
   width = 325;
 } else {
   width = 425;
 }
-
-console.log(windowWidth, width);
 
 const PersonalityRadar = props => {
   const data = props.traits.map(trait => {
@@ -40,6 +38,7 @@ const PersonalityRadar = props => {
         formatter={(a, b, c) => {
           return [a, c.payload.name];
         }}
+        label="I love cheese"
       />
     </RadarChart>
   );

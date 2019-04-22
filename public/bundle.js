@@ -288,13 +288,11 @@ __webpack_require__.r(__webpack_exports__);
 var windowWidth = window.outerWidth;
 var width;
 
-if (windowWidth < 800) {
+if (windowWidth < 11800) {
   width = 325;
 } else {
   width = 425;
 }
-
-console.log(windowWidth, width);
 
 var PersonalityRadar = function PersonalityRadar(props) {
   var data = props.traits.map(function (trait) {
@@ -321,7 +319,8 @@ var PersonalityRadar = function PersonalityRadar(props) {
   }), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(recharts__WEBPACK_IMPORTED_MODULE_1__["Tooltip"], {
     formatter: function formatter(a, b, c) {
       return [a, c.payload.name];
-    }
+    },
+    label: "I love cheese"
   }));
 };
 
@@ -355,7 +354,7 @@ __webpack_require__.r(__webpack_exports__);
 var override =  false ? undefined : {
   name: "9g5xcs-override",
   styles: "display:block;margin:35px auto 35px auto;label:override;",
-  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9SYWRhckNoYXJ0UXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBT29CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9SYWRhckNoYXJ0UXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRQZXJzb25hbGl0eVwiO1xuaW1wb3J0IFBlcnNvbmFsaXR5UmFkYXJDaGFydCBmcm9tIFwiLi9QZXJzb25hbGl0eVJhZGFyQ2hhcnRcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gXCJAZW1vdGlvbi9jb3JlXCI7XG5pbXBvcnQgeyBEb3RMb2FkZXIgfSBmcm9tIFwicmVhY3Qtc3Bpbm5lcnNcIjtcblxuY29uc3Qgb3ZlcnJpZGUgPSBjc3NgXG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IDM1cHggYXV0byAzNXB4IGF1dG87XG5gO1xuXG5jb25zdCBSYWRhckNoYXJ0UXVlcnkgPSAoeyB0ZXh0IH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHRleHQgfX0+XG4gICAgeyh7IGxvYWRpbmcsIGVycm9yLCBkYXRhIH0pID0+IHtcbiAgICAgIGlmIChsb2FkaW5nKVxuICAgICAgICByZXR1cm4gKFxuICAgICAgICAgIDxEb3RMb2FkZXJcbiAgICAgICAgICAgIGNzcz17b3ZlcnJpZGV9XG4gICAgICAgICAgICBzaXplVW5pdD17XCJweFwifVxuICAgICAgICAgICAgc2l6ZT17NjB9XG4gICAgICAgICAgICBjb2xvcj17XCIjZWY0M2U0XCJ9XG4gICAgICAgICAgLz5cbiAgICAgICAgKTtcblxuICAgICAgY29uc3QgdHJhaXRzID0gZGF0YS5nZXRQZXJzb25hbGl0eS5wZXJzb25hbGl0eV90cmFpdHNfYW5kX3Njb3JlcztcbiAgICAgIGNvbnNvbGUubG9nKHRyYWl0cyk7XG4gICAgICByZXR1cm4gKFxuICAgICAgICAvLyA8aDE+Q2hlY2sgY29uc29sZTwvaDE+XG4gICAgICAgIDxQZXJzb25hbGl0eVJhZGFyQ2hhcnQgdHJhaXRzPXt0cmFpdHN9IC8+XG4gICAgICApO1xuICAgIH19XG4gIDwvUXVlcnk+XG4pO1xuXG5leHBvcnQgZGVmYXVsdCBSYWRhckNoYXJ0UXVlcnk7XG4iXX0= */"
+  map: "/*# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9SYWRhckNoYXJ0UXVlcnkuanMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBT29CIiwiZmlsZSI6Ii9ob21lL25pY2svRnVsbFN0YWNrQWNhZGVteS9vY2Vhbi9jbGllbnQvY29tcG9uZW50cy9SYWRhckNoYXJ0UXVlcnkuanMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgUmVhY3QgZnJvbSBcInJlYWN0XCI7XG5pbXBvcnQgeyBRdWVyeSB9IGZyb20gXCJyZWFjdC1hcG9sbG9cIjtcbmltcG9ydCBxdWVyeSBmcm9tIFwiLi4vcXVlcmllcy9nZXRQZXJzb25hbGl0eVwiO1xuaW1wb3J0IFBlcnNvbmFsaXR5UmFkYXJDaGFydCBmcm9tIFwiLi9QZXJzb25hbGl0eVJhZGFyQ2hhcnRcIjtcbmltcG9ydCB7IGNzcyB9IGZyb20gXCJAZW1vdGlvbi9jb3JlXCI7XG5pbXBvcnQgeyBEb3RMb2FkZXIgfSBmcm9tIFwicmVhY3Qtc3Bpbm5lcnNcIjtcblxuY29uc3Qgb3ZlcnJpZGUgPSBjc3NgXG4gIGRpc3BsYXk6IGJsb2NrO1xuICBtYXJnaW46IDM1cHggYXV0byAzNXB4IGF1dG87XG5gO1xuXG5jb25zdCBSYWRhckNoYXJ0UXVlcnkgPSAoeyB0ZXh0IH0pID0+IChcbiAgPFF1ZXJ5IHF1ZXJ5PXtxdWVyeX0gdmFyaWFibGVzPXt7IHRleHQgfX0+XG4gICAgeyh7IGxvYWRpbmcsIGVycm9yLCBkYXRhIH0pID0+IHtcbiAgICAgIGlmIChsb2FkaW5nKVxuICAgICAgICByZXR1cm4gKFxuICAgICAgICAgIDxEb3RMb2FkZXJcbiAgICAgICAgICAgIGNzcz17b3ZlcnJpZGV9XG4gICAgICAgICAgICBzaXplVW5pdD17XCJweFwifVxuICAgICAgICAgICAgc2l6ZT17NjB9XG4gICAgICAgICAgICBjb2xvcj17XCIjZWY0M2U0XCJ9XG4gICAgICAgICAgLz5cbiAgICAgICAgKTtcblxuICAgICAgY29uc3QgdHJhaXRzID0gZGF0YS5nZXRQZXJzb25hbGl0eS5wZXJzb25hbGl0eV90cmFpdHNfYW5kX3Njb3JlcztcbiAgICAgIHJldHVybiA8UGVyc29uYWxpdHlSYWRhckNoYXJ0IHRyYWl0cz17dHJhaXRzfSAvPjtcbiAgICB9fVxuICA8L1F1ZXJ5PlxuKTtcblxuZXhwb3J0IGRlZmF1bHQgUmFkYXJDaGFydFF1ZXJ5O1xuIl19 */"
 };
 
 var RadarChartQuery = function RadarChartQuery(_ref) {
@@ -376,12 +375,9 @@ var RadarChartQuery = function RadarChartQuery(_ref) {
       color: "#ef43e4"
     });
     var traits = data.getPersonality.personality_traits_and_scores;
-    console.log(traits);
-    return (// <h1>Check console</h1>
-      react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_3__["default"], {
-        traits: traits
-      })
-    );
+    return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_PersonalityRadarChart__WEBPACK_IMPORTED_MODULE_3__["default"], {
+      traits: traits
+    });
   });
 };
 
