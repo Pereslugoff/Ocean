@@ -14,7 +14,7 @@ class App extends Component {
     const calculators = [];
     const { numCalculators } = this.state;
     for (let i = 0; i < numCalculators; i++) {
-      calculators.push(<PersonalityCalculator />);
+      calculators.push(<PersonalityCalculator key={`PC${i}`} />);
     }
     return (
       <div className="app-container">

@@ -12,12 +12,22 @@ export default class SubredditLanding extends Component {
       data: false,
       sort: "hot",
       timeInterval: "day",
-      posts: []
+      posts: [],
+      errors: false,
+      errorMessage: ""
     };
   }
 
   handleQuery = () => {
-    this.setState({ data: true });
+    const { name } = this.state;
+    if (name.length) {
+      this.setState({ data: true });
+    } else {
+      this.setState({
+        errors: true,
+        errorMessage: "Enter a subreddit or choose one below!"
+      });
+    }
   };
 
   handleFormChange = event => {
@@ -37,7 +47,7 @@ export default class SubredditLanding extends Component {
 
     const limit = Number(this.state.limit);
     const depth = Number(this.state.depth);
-    const { sort, data, name, timeInterval } = this.state;
+    const { sort, data, name, timeInterval, errors, errorMessage } = this.state;
 
     const queryDictionary = {
       hot: { name, limit, depth, timeInterval },
@@ -53,6 +63,7 @@ export default class SubredditLanding extends Component {
           <SubredditQuery queryType={sort} queryVars={queryVars} />
         ) : (
           <div className="subreddit-landing-inner">
+            <span className={errors ? "show" : ""}>{errorMessage}</span>
             <SubredditForm
               handleFormChange={this.handleFormChange}
               limit={limit}

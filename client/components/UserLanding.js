@@ -7,7 +7,9 @@ export default class UserLanding extends Component {
     super(props);
     this.state = {
       username: "",
-      data: false
+      data: false,
+      errors: false,
+      errorMessage: ""
     };
 
     this.handleFormChange = this.handleFormChange.bind(this);
@@ -15,7 +17,15 @@ export default class UserLanding extends Component {
   }
 
   handleQuery = () => {
-    this.setState({ data: true });
+    const { username } = this.state;
+    if (username.length) {
+      this.setState({ data: true });
+    } else {
+      this.setState({
+        errors: true,
+        errorMessage: "Enter a user or choose one below!"
+      });
+    }
   };
 
   handleFormChange = event => {
@@ -23,7 +33,7 @@ export default class UserLanding extends Component {
   };
 
   render() {
-    const { username, data } = this.state;
+    const { username, data, errors, errorMessage } = this.state;
 
     const famousUsers = [
       "spez",
@@ -39,6 +49,7 @@ export default class UserLanding extends Component {
           <UserQuery username={username} />
         ) : (
           <div className="get-user-comments-button-container">
+            <span className={errors ? "show" : ""}>{errorMessage}</span>
             <UserForm handleFormChange={this.handleFormChange} />
             <div className="user-buttons-container">
               Suggested Users:

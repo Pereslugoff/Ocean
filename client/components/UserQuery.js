@@ -12,7 +12,7 @@ const override = css`
 `;
 
 const UserQuery = ({ username }) => (
-  <Query query={query} variables={{ username }}>
+  <Query query={query} variables={{ username }} errorPolicy="all">
     {({ loading, error, data }) => {
       if (loading)
         return (
@@ -23,7 +23,7 @@ const UserQuery = ({ username }) => (
             color={"#ef43e4"}
           />
         );
-      if (error) return <p>${error}</p>;
+      if (error) return <p className="show">Error! Please try again</p>;
       const text = data.user.comments.map(comment => comment.body).join("");
       return (
         <div className="data-list">

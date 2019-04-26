@@ -6,6 +6,12 @@
   width: 100%;
 }
 
+.show {
+  font-weight: 300;
+  height: 30px;
+  color: $highlight-color;
+}
+
 input[type="text"] {
   border-top: none;
   border-left: none;

@@ -35,7 +35,7 @@ const SubredditQuery = ({ queryType, queryVars }) => {
               color={"#ef43e4"}
             />
           );
-        if (error) return null;
+        if (error) return <p className="show">Error! Please try again</p>;
         const posts = data.subreddit[queryType];
         const text = posts
           .map(post => {
@@ -44,7 +44,6 @@ const SubredditQuery = ({ queryType, queryVars }) => {
             });
           })
           .join("");
-        console.log(text);
         return (
           <div>
             <RadarChartQuery text={text} />

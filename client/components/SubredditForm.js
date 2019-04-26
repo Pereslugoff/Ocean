@@ -17,6 +17,7 @@ const SubredditForm = ({ handleFormChange, depth, limit }) => (
     <div className="slider-fields">
       <label>Number of Posts: {limit}</label>
       <input
+        onChange={event => handleFormChange(event)}
         type="range"
         min="1"
         max="4"
@@ -29,6 +30,7 @@ const SubredditForm = ({ handleFormChange, depth, limit }) => (
     <div className="slider-fields">
       <label>Depth of Comments: {depth}</label>
       <input
+        onChange={event => handleFormChange(event)}
         type="range"
         min="1"
         max="4"

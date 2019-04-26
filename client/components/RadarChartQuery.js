@@ -22,7 +22,7 @@ const RadarChartQuery = ({ text }) => (
             color={"#ef43e4"}
           />
         );
-
+      if (error) return <p className="show">Error! Please try again</p>;
       const traits = data.getPersonality.personality_traits_and_scores;
       return <PersonalityRadarChart traits={traits} />;
     }}
