@@ -24,10 +24,10 @@ const UserQuery = ({ username }) => (
           />
         );
       if (error) return <p className="show">Error! Please try again</p>;
-      const text = data.user.comments.map(comment => comment.body).join("");
+      const content = data.user.comments.map(comment => comment.body).join("");
       return (
         <div className="data-list">
-          <RadarChartQuery text={text} />
+          <RadarChartQuery content={content} />
           <UserDataList usercomments={data.user.comments} />
         </div>
       );

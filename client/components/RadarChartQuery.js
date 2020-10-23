@@ -10,8 +10,8 @@ const override = css`
   margin: 35px auto 35px auto;
 `;
 
-const RadarChartQuery = ({ text }) => (
-  <Query query={query} variables={{ text }}>
+const RadarChartQuery = ({ content }) => (
+  <Query query={query} variables={{ content }}>
     {({ loading, error, data }) => {
       if (loading)
         return (

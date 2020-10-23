@@ -37,7 +37,7 @@ const SubredditQuery = ({ queryType, queryVars }) => {
           );
         if (error) return <p className="show">Error! Please try again</p>;
         const posts = data.subreddit[queryType];
-        const text = posts
+        const content = posts
           .map(post => {
             return post.comments.map(comment => {
               return comment.body;
@@ -46,7 +46,7 @@ const SubredditQuery = ({ queryType, queryVars }) => {
           .join("");
         return (
           <div>
-            <RadarChartQuery text={text} />
+            <RadarChartQuery content={content} />
             <SubredditDataList posts={posts} />
           </div>
         );
