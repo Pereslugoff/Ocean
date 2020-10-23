@@ -11,8 +11,8 @@ module.exports = {
   Query: {
     user: (parentvalue, { username }) => getUser(username),
     subreddit: (parent, { name }) => getSubreddit(name),
-    getPersonality: (parentvalue, { text }) => {
-      return getPersonality(text)
+    getPersonality: (parentvalue, { content }) => {
+      return getPersonality(content)
       .then(result => {
         return result;
       })
@@ -105,19 +105,19 @@ module.exports = {
     word_count: profile => profile.word_count,
     word_count_message: profile => profile.world_count_message,
     personality_traits_and_scores: profile => {
-      return profile.personality.map(trait => {
+      return profile.result.personality.map(trait => {
         const singleTrait = trait.trait_id.split("_")[1];
         return `${singleTrait} - ${trait.percentile}`;
       });
     },
     needs_traits_and_scores: profile => {
-      return profile.needs.map(trait => {
+      return profile.result.needs.map(trait => {
         const singleTrait = trait.trait_id.split("_")[1];
         return `${singleTrait} - ${trait.percentile}`;
       });
     },
     values_traits_and_scores: profile => {
-      return profile.needs.map(trait => {
+      return profile.result.needs.map(trait => {
         const singleTrait = trait.trait_id.split("_")[1];
         return `${singleTrait} - ${trait.percentile}`;
       });

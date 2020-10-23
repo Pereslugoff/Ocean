@@ -38,8 +38,8 @@ module.exports = typeDefs = gql`
 
   type Query {
     "A simple type for getting started!"
-    user(username: String!): User!
+    user(username: String): User!
     subreddit(name: String): Subreddit
-    getPersonality(text: String): Watson
+    getPersonality(content: String): Watson
   }
 `
