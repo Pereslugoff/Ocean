@@ -4,23 +4,26 @@
   100% {
     opacity: 1; } }
 
-.app-header {
+.nav {
+  width: 80%;
+  height: 96px;
   position: absolute;
-  cursor: default;
+  left: 10%;
   display: flex;
-  flex-direction: column;
-  height: 75px;
-  color: #fff;
-  width: 100%;
-  margin-top: 15px; }
-  .app-header h1,
-  .app-header h2 {
-    margin: 0;
-    color: #fff; }
-  .app-header h1 {
-    font-weight: 300; }
-  .app-header h2 {
-    font-weight: 100; }
+  align-items: center;
+  justify-content: center; }
+  .nav-left {
+    height: 100%;
+    display: flex;
+    align-items: center; }
+  .nav-right {
+    display: none; }
+  .nav .wave-icon {
+    width: 72px;
+    height: 72px;
+    padding-right: 16px; }
+  .nav h1 {
+    font-size: 64px; }
 
 .single-calc-container {
   background-color: #253e46;
@@ -250,24 +253,64 @@ li {
 li:hover {
   color: #ef43e4; }
 
-@media screen and (max-width: 500px) {
-  #app-header {
-    text-align: center;
-    justify-content: center; } }
-
-@media screen and (max-width: 768px) {
-  .calc-container {
-    display: flex;
-    flex-direction: row !important;
-    width: 100% !important;
-    flex-wrap: wrap; } }
-
 @media screen and (min-width: 769px) {
   .calc-container {
     display: flex;
     flex-direction: row !important;
     width: 100% !important;
     flex-wrap: wrap; } }
+
+.home {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; }
+  .home .home-title {
+    font-size: 36px;
+    margin-left: auto;
+    text-align: center; }
+  .home-top {
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    height: 50%;
+    width: 80%;
+    max-height: 100%; }
+  .home-bottom {
+    height: 50%;
+    background-color: #3188CA;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start; }
+    .home-bottom-left {
+      width: 80%;
+      height: 140px;
+      font-size: 24px;
+      line-height: 1.5;
+      text-align: center;
+      margin-bottom: 2em; }
+  .home .home-button-container .home-button {
+    width: 250px;
+    height: 48px;
+    background-color: #64B6EC;
+    font-size: 30px;
+    font-family: report, sans-serif;
+    color: white;
+    border-radius: 15px;
+    border: none; }
+    .home .home-button-container .home-button-link {
+      text-decoration: none;
+      color: white; }
+  .home .wave {
+    width: 100%;
+    position: absolute;
+    bottom: 49%; }
+
+* {
+  box-sizing: border-box; }
 
 html {
   height: 100vh;
@@ -276,20 +319,22 @@ html {
 
 body {
   margin: 0;
-  font-family: "Roboto";
-  min-height: 100%; }
+  color: white;
+  font-family: report, sans-serif;
+  height: 100%; }
 
 body::-webkit-scrollbar {
   width: 0; }
 
+h1 {
+  margin: 0; }
+
+#app {
+  height: 100%;
+  background-color: #181E51; }
+
 .app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
-  background-color: #0f323d;
-  background: repeating-linear-gradient(45deg, #0f323d, #0f323d 10px, #21424d 10px, #21424d 20px); }
+  height: 100%; }
 
 .calc-container {
   display: flex;

@@ -1,13 +1,16 @@
 @import "config";
-@import "header";
+@import "nav";
 @import "calculator";
 @import "userLanding";
 @import "subredditLanding";
 @import "form";
 @import "data";
-@import "mobile";
-@import "tablet";
 @import "desktop";
+@import "home";
+
+* {
+  box-sizing: border-box;
+}
 
 html {
   height: 100vh;
@@ -17,28 +20,26 @@ html {
 
 body {
   margin: 0;
-  font-family: "Roboto";
-  min-height: 100%;
+  color: white;
+  font-family: $font;
+  height: 100%;
 }
 
 body::-webkit-scrollbar {
   width: 0;
 }
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  min-height: 100vh;
+h1 {
+  margin: 0;
+}
+
+#app {
+  height: 100%;
   background-color: $background-primary;
-  background: repeating-linear-gradient(
-    45deg,
-    $background-primary,
-    $background-primary 10px,
-    $background-secondary 10px,
-    $background-secondary 20px
-  );
+}
+
+.app-container {
+  height: 100%;
 }
 
 .calc-container {

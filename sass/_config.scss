@@ -1,31 +1,26 @@
-$background-primary: rgb(15, 50, 61);
-$background-secondary: rgb(33, 66, 77);
+$background-primary: #181E51;
+$background-secondary: rgb(184, 184, 184);
 $text-color: #fff;
 $calc-background: rgb(37, 62, 70);
 $box-shadow: 0px 3px 3px rgb(17, 27, 32);
 $box-border: 1px solid rgb(31, 52, 59);
 $highlight-color: #ef43e4;
+$font: report, sans-serif;
 
-@mixin mediaSm {
-  @media screen and (max-width: 500px) {
-    @content;
-  }
-}
-
-@mixin mediaMd {
+@mixin phone {
   @media screen and (max-width: 768px) {
     @content;
   }
 }
 
-@mixin mediaLg {
+@mixin desktop {
   @media screen and (min-width: 769px) {
     @content;
   }
 }
 
-@mixin mediaXl {
-  @media screen and (min-width: 1171px) {
+@mixin desktopXL {
+  @media screen and (min-width: 992px) {
     @content;
   }
 }
