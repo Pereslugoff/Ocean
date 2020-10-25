@@ -6,6 +6,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @include tablet {
+    justify-content: start;
+  }
   
   &-left {
     height: 100%;

@@ -13,14 +13,14 @@ $font: report, sans-serif;
   }
 }
 
-@mixin desktop {
+@mixin tablet {
   @media screen and (min-width: 769px) {
     @content;
   }
 }
 
-@mixin desktopXL {
-  @media screen and (min-width: 992px) {
+@mixin desktop {
+  @media screen and (min-width: 1025px) {
     @content;
   }
 }
