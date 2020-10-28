@@ -3,7 +3,7 @@ import React from 'react'
 const UserForm = (props) => {
   return (
     <form
-      onChange={event => props.handleFormChange(event)}
+      onChange={event => props.handleFormChange(event.target.value)}
       className="calc-form"
       autoComplete="off"
     >

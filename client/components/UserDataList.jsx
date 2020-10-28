@@ -1,7 +1,6 @@
 import React from 'react';
 
-const UserDataList = (props) => {
-  const {usercomments} = props
+const UserDataList = ({ usercomments }) => {
   return (
     <div className="data-container">
       <ul>

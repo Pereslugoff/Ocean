@@ -1,78 +1,64 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import UserForm from "./UserForm";
 import UserQuery from "./UserQuery";
 
-export default class UserLanding extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: "",
-      data: false,
-      errors: false,
-      errorMessage: ""
-    };
+const famousUsers = [
+  "spez",
+  "kn0thing",
+  "neiltyson",
+  "GovSchwarzenegger",
+  "Here_Comes_The_King",
+  "williamshatner"
+];
+export const UserLanding = () => {
 
-    this.handleFormChange = this.handleFormChange.bind(this);
-    this.handleQuery = this.handleQuery.bind(this);
-  }
+  const [ username, setUsername ] = useState('');
+  const [ hasRedditData, setRedditData ] = useState(false);
+  const [ hasError, setError ] = useState(false);
+  const [ errorMessage, setErrorMessage ] = useState('');
 
-  handleQuery = () => {
-    const { username } = this.state;
-    if (username.length) {
-      this.setState({ data: true });
+  const handleQuery = () => {
+    if (username) {
+      setRedditData(true);
     } else {
-      this.setState({
-        errors: true,
-        errorMessage: "Enter a user or choose one below!"
-      });
+      setError(true);
+      setErrorMessage("Enter a user or choose one below!");
     }
   };
 
-  handleFormChange = event => {
-    this.setState({ username: event.target.value });
-  };
-
-  render() {
-    const { username, data, errors, errorMessage } = this.state;
-
-    const famousUsers = [
-      "spez",
-      "kn0thing",
-      "neiltyson",
-      "GovSchwarzenegger",
-      "Here_Comes_The_King",
-      "williamshatner"
-    ];
-    return (
-      <div className="user-landing-container">
-        {data ? (
-          <UserQuery username={username} />
-        ) : (
-          <div className="get-user-comments-button-container">
-            <span className={errors ? "show" : ""}>{errorMessage}</span>
-            <UserForm handleFormChange={this.handleFormChange} />
-            <div className="user-buttons-container">
-              Suggested Users:
-              {famousUsers.map((user, index) => {
-                return (
-                  <div
-                    className="user-btn"
-                    key={`UB${index}`}
-                    onClick={() =>
-                      this.setState({ username: user, data: true })
-                    }
-                  >
-                    {user}
-                  </div>
-                );
-              })}
-            </div>
-            <button className="btn" onClick={() => this.handleQuery()}>
-              Get Comments!
-            </button>
+  return (
+    <div className="user-landing-container">
+      { hasRedditData ? (
+        <UserQuery username={username} />
+      ) : (
+        <div className="get-user-comments-button-container">
+          <span className={hasError ? "show" : ""}>{errorMessage}</span>
+          <UserForm handleFormChange={setUsername} />
+          <div className="user-buttons-container">
+            Suggested Users:
+            {famousUsers.map((user, index) => {
+              return (
+                <div
+                  className="user-btn"
+                  key={`UB${index}`}
+                  onClick={() => {
+                    setUsername(user);
+                    setRedditData(true);
+                  }
+                  }
+                >
+                  {user}
+                </div>
+              );
+            })}
           </div>
-        )}
-      </div>
-    );
-  }
+          <button className="btn" onClick={() => handleQuery()}>
+            Get Comments!
+          </button>
+        </div>
+      )}
+    </div>
+  );
 }
+
+export default UserLanding;

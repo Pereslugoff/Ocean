@@ -23,6 +23,7 @@ const UserQuery = ({ username }) => (
             color={"#ef43e4"}
           />
         );
+      if(error) console.log(error);
       if (error) return <p className="show">Error! Please try again</p>;
       const content = data.user.comments.map(comment => comment.body).join("");
       return (
